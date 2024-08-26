@@ -47,7 +47,7 @@ public class Ansatt {
         return aarslonn;
     }
 
-    public void setAarslonn(int aarslonn) {
-        this.aarslonn = aarslonn;
+    public void setAarslonn(double aarslonn) {
+        this.aarslonn = (int)aarslonn;
     }
 }
