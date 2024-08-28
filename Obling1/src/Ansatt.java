@@ -50,4 +50,9 @@ public class Ansatt {
     public void setAarslonn(double aarslonn) {
         this.aarslonn = (int)aarslonn;
     }
+
+    @Override
+    public String toString() {
+        return fornavn + " " + etternavn + " " + stilling + " " + kjonn + " " + aarslonn;
+    }
 }
