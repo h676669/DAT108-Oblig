@@ -4,7 +4,6 @@ import Oppgave2.Ansatt;
 import Oppgave2.Kjonn;
 
 import java.util.*;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Oppg3 {
@@ -18,7 +17,7 @@ public class Oppg3 {
         );
 
         //Skriver ut en liste med etternavnene til de ansatte.
-        List<String> etternavnListe = ansatte.stream().map(Ansatt::getEtternavn).collect(Collectors.toList());
+        List<String> etternavnListe = ansatte.stream().map(Ansatt::getEtternavn).toList();
         System.out.println("Etternavnene til de ansatte: " + etternavnListe);
         System.out.println();
 
@@ -28,7 +27,7 @@ public class Oppg3 {
         System.out.println();
 
         //finner gjennomsnittslønnen til kvinner.
-        Double avgKvinnelonn = ansatte.stream().filter(p -> p.getKjonn() == Kjonn.KVINNE).mapToInt(p -> p.getAarslonn()).average().getAsDouble();
+        double avgKvinnelonn = ansatte.stream().filter(p -> p.getKjonn() == Kjonn.KVINNE).mapToDouble(Ansatt::getAarslonn).average().orElse(0.0);
         System.out.println("Gjennomsnittlig kvinnelønn: " + avgKvinnelonn);
         System.out.println();
 
