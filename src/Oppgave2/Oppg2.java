@@ -14,18 +14,22 @@ public class Oppg2 {
                 new Ansatt("Keanu", "Reeves", Kjonn.MANN, "Breathtaking", 2600400)
         );
         skrivUtAlle(ansatte);
+
         //Fast tillegg
         System.out.println();
         lonnsoppgjor(ansatte, ansatt -> ansatt.getAarslonn() + 20);
         skrivUtAlle(ansatte);
+
         //Fast Prosenttillegg
         System.out.println();
         lonnsoppgjor(ansatte, ansatt -> (int) (ansatt.getAarslonn() * 1.00001));
         skrivUtAlle(ansatte);
+
         //Tillegg hvis lønn er lav
         System.out.println();
         lonnsoppgjor(ansatte, ansatt -> ansatt.getAarslonn() < 69420 ? ansatt.getAarslonn() + 1 : ansatt.getAarslonn());
         skrivUtAlle(ansatte);
+
         //tillegg hvis du er mann
         System.out.println();
         lonnsoppgjor(ansatte, ansatt -> ansatt.getKjonn() == Kjonn.MANN ? (int) (ansatt.getAarslonn() * 1.30) : ansatt.getAarslonn());
