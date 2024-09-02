@@ -10,7 +10,7 @@ public class Oppg3 {
     public static void main(String[] args) {
         List<Oppgave2.Ansatt> ansatte = Arrays.asList(
                 new Oppgave2.Ansatt("Lars-Christian", "Selland", Kjonn.MANN, "Sjef", 830260),
-                new Oppgave2.Ansatt("Pika", "Chu", Kjonn.POKÉMON, "SjefsRotte", 69399),
+                new Oppgave2.Ansatt("Soni", "Chu", Kjonn.POKÉMON, "SjefsRotte", 69399),
                 new Oppgave2.Ansatt("Eduard", "Laksehånd Steenslid", Kjonn.MANN, "Morder", 420666),
                 new Oppgave2.Ansatt("Maria", "Bygeland", Kjonn.KVINNE, "Female employee", 320100),
                 new Ansatt("Keanu", "Reeves", Kjonn.MANN, "Breathtaking", 2600400)
