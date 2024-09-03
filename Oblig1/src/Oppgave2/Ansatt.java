@@ -1,4 +1,4 @@
-package src.Oppgave2;
+package Oppgave2;
 
 public class Ansatt {
     private String fornavn, etternavn, stilling;

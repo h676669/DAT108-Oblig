@@ -1,7 +1,7 @@
-package src.Oppgave3;
+package Oppgave3;
 
-import src.Oppgave2.Ansatt;
-import src.Oppgave2.Kjonn;
+import Oppgave2.Ansatt;
+import Oppgave2.Kjonn;
 
 import java.util.*;
 import java.util.stream.IntStream;

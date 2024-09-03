@@ -1,4 +1,4 @@
-package src.Oppgave2;
+package Oppgave2;
 
 public enum Kjonn {
     MANN,

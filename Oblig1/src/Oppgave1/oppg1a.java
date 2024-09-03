@@ -1,4 +1,4 @@
-package src.Oppgave1;
+package Oppgave1;
 
 import java.util.Arrays;
 import java.util.Collections;
