@@ -1,4 +1,4 @@
-package Oppgave1;
+package src.Oppgave1;
 
 import java.util.function.BiFunction;
 

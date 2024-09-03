@@ -1,18 +1,18 @@
-package Oppgave3;
+package src.Oppgave3;
 
-import Oppgave2.Ansatt;
-import Oppgave2.Kjonn;
+import src.Oppgave2.Ansatt;
+import src.Oppgave2.Kjonn;
 
 import java.util.*;
 import java.util.stream.IntStream;
 
 public class Oppg3 {
     public static void main(String[] args) {
-        List<Oppgave2.Ansatt> ansatte = Arrays.asList(
-                new Oppgave2.Ansatt("Lars-Christian", "Selland", Kjonn.MANN, "Sjef", 830260),
-                new Oppgave2.Ansatt("Soni", "Chu", Kjonn.POKÉMON, "SjefsRotte", 69399),
-                new Oppgave2.Ansatt("Eduard", "Laksehånd Steenslid", Kjonn.MANN, "Morder", 420666),
-                new Oppgave2.Ansatt("Maria", "Bygeland", Kjonn.KVINNE, "Female employee", 320100),
+        List<Ansatt> ansatte = Arrays.asList(
+                new Ansatt("Lars-Christian", "Selland", Kjonn.MANN, "Sjef", 830260),
+                new Ansatt("Soni", "Chu", Kjonn.POKÉMON, "SjefsRotte", 69399),
+                new Ansatt("Eduard", "Laksehånd Steenslid", Kjonn.MANN, "Morder", 420666),
+                new Ansatt("Maria", "Bygeland", Kjonn.KVINNE, "Female employee", 320100),
                 new Ansatt("Keanu", "Reeves", Kjonn.MANN, "Breathtaking", 2600400)
         );
 
