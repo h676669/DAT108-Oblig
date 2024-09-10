@@ -8,7 +8,6 @@ public class Main {
         Thread skrivUtMelding = new Thread(){
             @Override
             public void run(){
-                // vil kjøre vist quit blir skrevet mens thread såver
                 while(!Melding.equals("quit")){
                     try{
                         Thread.sleep(3000);
