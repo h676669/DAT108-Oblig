@@ -17,7 +17,7 @@ public class Servitor implements Runnable {
     public void run() {
         while (true) {
             try {
-                Thread.sleep(random.nextInt(2000,6000));
+                Thread.sleep(random.nextInt(2000, 6000));
                 brat.tilServitor(Navn);
             } catch (InterruptedException e) {
             }
