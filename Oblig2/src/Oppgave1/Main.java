@@ -26,7 +26,7 @@ public class Main {
             public void run(){
                 while(Kjorrer){
                     Melding = javax.swing.JOptionPane.showInputDialog("Skriv inn melding din, skriv quit for å avslutte");
-                    if(Melding.equals("quit")){
+                    if(Melding.equalsIgnoreCase("quit")){
                         Kjorrer = false;
                     }
                 }
