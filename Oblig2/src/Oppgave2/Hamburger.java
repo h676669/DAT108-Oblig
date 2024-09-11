@@ -7,11 +7,13 @@ public class Hamburger {
     public Hamburger() {
         this.id = ++idCount;
     }
+
     public int getId() {
         return id;
     }
+
     @Override
     public String toString() {
-        return "Hamburger " + id;
+        return "◖" + id + "◗";
     }
 }

@@ -1,19 +1,18 @@
 package Oppgave1;
-import javax.swing.JOptionPane;
 
 public class Main {
     public static String Melding;
-    public static boolean Kjorrer;
+    public static boolean runs;
     public static void main(String[] args) {
         Melding = "Hallo Verden!";
-        Kjorrer = true;
+        runs = true;
         Thread skrivUtMelding = new Thread(){
             @Override
             public void run(){
-                while(Kjorrer){
+                while(runs){
                     try {
                         Thread.sleep(3000);
-                        if(!Kjorrer){
+                        if(!runs){
                             break;
                         }
                         System.out.println(Melding);
@@ -24,10 +23,10 @@ public class Main {
         Thread velgMelding = new Thread(){
             @Override
             public void run(){
-                while(Kjorrer){
+                while(runs){
                     Melding = javax.swing.JOptionPane.showInputDialog("Skriv inn melding din, skriv quit for å avslutte");
                     if(Melding.equalsIgnoreCase("quit")){
-                        Kjorrer = false;
+                        runs = false;
                     }
                 }
             }
