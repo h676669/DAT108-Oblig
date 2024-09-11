@@ -1,5 +1,7 @@
 package Oppgave3;
 
+import Oppgave2.Hamburger;
+
 import java.util.Arrays;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
