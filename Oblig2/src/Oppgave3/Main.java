@@ -14,17 +14,18 @@ public class Main {
         skrivUtHeader(kokker, servitorer, KAPASITET);
         BlockingQueue<Hamburger> brett = new ArrayBlockingQueue<>(KAPASITET);
         for (String navn : kokker) {
-            new Thread(new Kokk(brett,navn)).start();
+            new Thread(new Kokk(brett, navn)).start();
         }
         for (String navn : servitorer) {
-            new Thread(new Servitor(brett,navn)).start();
+            new Thread(new Servitor(brett, navn)).start();
         }
     }
+
     public static void skrivUtHeader(String[] kokker, String[] servitorer, int cap) {
         System.out.println("I denne simuleringen har vi ");
         System.out.println(kokker.length + " kokker " + Arrays.toString(kokker));
         System.out.println(servitorer.length + " servitører  " + Arrays.toString(servitorer));
-        System.out.println("kapasiteten er " + cap + " hamburgere");
+        System.out.println("kapasiteten til brettet er " + cap + " hamburgere.");
         System.out.println("Vi starter ...");
 
     }
