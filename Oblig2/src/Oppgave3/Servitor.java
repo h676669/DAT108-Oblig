@@ -20,7 +20,7 @@ public class Servitor implements Runnable {
         try {
             while (true) {
                 Thread.sleep(random.nextInt(2000, 6000));
-                Hamburger hamburger = brett.take();  // Blocking if the queue is empty
+                Hamburger hamburger = brett.take();
                 System.out.println(navn + " (servitør) tar av hamburger " + hamburger.toString() + ". Brett: " + brett.toString());
             }
         } catch (InterruptedException e) {

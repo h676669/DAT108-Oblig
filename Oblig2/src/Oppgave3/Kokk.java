@@ -20,9 +20,9 @@ public class Kokk implements Runnable {
     public void run() {
         try {
             while (true) {
-                Thread.sleep(random.nextInt(2000, 6000));  // Simulate time to prepare a hamburger
+                Thread.sleep(random.nextInt(2000, 6000));
                 Hamburger hamburger = new Hamburger();
-                brat.put(hamburger);  // Blocking if the queue is full
+                brat.put(hamburger);
                 System.out.println(navn + " (kokk) legger på hamburger " + hamburger.toString() + ". Brett: " + brat.toString());
             }
         } catch (InterruptedException e) {
