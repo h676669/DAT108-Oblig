@@ -15,16 +15,19 @@ class DeltagerManager {
         this.#sluttid = root.querySelector('#sluttid');
         this.#startnummer = root.querySelector('#startnummer');
         this.#buttonEl = root.querySelector('#registrerbutton');
-        this.#hidden = root.querySelector('.hidden');
+        this.#hidden = root.querySelector('#kvittering');
 
+        this.#buttonEl.addEventListener('click', () => this.registrerKvitering());
+        this.#buttonEl.addEventListener('click', () => this.visKvittering());
 
-        this.#buttonEl.addEventListener('click',this.#registrerMedlem());
     }
+    registrerKvitering(){
 
-    #registrerMedlem(){
-        this.#hidden.r
     }
-
+    visKvittering() {
+        this.#hidden.classList.remove('hidden');
+        this.#hidden.textContent = `Deltager ${this.#navn} med startnummer ${this.#startnummer} ble regisrert med sluttid ${this.#sluttid}`;
+    }
 
     // Deklarer klassen sine public og private metoder her
 }
