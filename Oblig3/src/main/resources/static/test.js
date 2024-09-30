@@ -93,40 +93,45 @@ class DeltagerManager {
         const ovregrense = this.ovregrenseInput.value;
 
         // Valider at "Fra" ikke er større enn "Til"
-        if (nedregrense && ovregrense && nedregrense > ovregrense) {
-            // Sett feilmelding på "Til"-feltet
-            this.ovregrenseInput.setCustomValidity("Til-tiden kan ikke være mindre enn Fra-tiden.");
-            this.ovregrenseInput.reportValidity(); // Viser feilmeldingen og røde rammen
-            this.ovregrenseInput.focus(); // Setter fokus på feltet
-            return;
+
+        if(this.validerGrense()){
+            let filtrerteDeltagere = this.deltagere.filter(deltager => {
+                if (nedregrense && deltager.sluttid < nedregrense) {
+                    return false;
+                }
+                if (ovregrense && deltager.sluttid > ovregrense) {
+                    return false;
+                }
+                return true;
+            });
+
+            // Sorter deltakerne etter sluttid
+            filtrerteDeltagere.sort((a, b) => a.sluttid.localeCompare(b.sluttid));
+
+            // Oppdater tabellen med resultatene
+            this.oppdater
+
+
+            // Sorter deltakerne etter sluttid
+            filtrerteDeltagere.sort((a, b) => a.sluttid.localeCompare(b.sluttid));
+
+            // Oppdater tabellen med resultatene
+            this.oppdaterResultatTabell(filtrerteDeltagere);
         }
-
-        // Tilbakestill eventuelle tidligere feilmeldinger
-        this.ovregrenseInput.setCustomValidity('');
-
         // Filtrer deltakerne basert på nedre- og øvregrense
-        let filtrerteDeltagere = this.deltagere.filter(deltager => {
-            if (nedregrense && deltager.sluttid < nedregrense) {
-                return false;
-            }
-            if (ovregrense && deltager.sluttid > ovregrense) {
-                return false;
-            }
-            return true;
-        });
-
-        // Sorter deltakerne etter sluttid
-        filtrerteDeltagere.sort((a, b) => a.sluttid.localeCompare(b.sluttid));
-
-        // Oppdater tabellen med resultatene
-        this.oppdater
-
-
-        // Sorter deltakerne etter sluttid
-        filtrerteDeltagere.sort((a, b) => a.sluttid.localeCompare(b.sluttid));
-
-        // Oppdater tabellen med resultatene
-        this.oppdaterResultatTabell(filtrerteDeltagere);
+    }
+    validerGrense(){
+        if (!this.sluttidInput || !this.ovregrenseInput || !this.nedregrenseInput) {
+            return false;
+        }
+        if(this.nedregrenseInput.value > this.ovregrenseInput.value) {
+            this.ovregrenseInput.setCustomValidity("Til-tiden kan ikke være mindre enn Fra-tiden.");
+            this.ovregrenseInput.reportValidity();
+            this.ovregrenseInput.focus()
+            return false;
+        }
+        this.ovregrenseInput.setCustomValidity('');
+        return true
     }
 
     oppdaterResultatTabell(deltagere) {
