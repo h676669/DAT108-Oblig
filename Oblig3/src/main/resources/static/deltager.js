@@ -9,24 +9,23 @@ class DeltagerManager {
         this.sluttid = root.querySelector('#sluttid');
         this.startnummer = root.querySelector('#startnummer');
         this.registrerButtonEl = root.querySelector('#registrerbutton');
-        //velger p elementer under fieldset registrering
-        this.hidden = root.querySelector("fieldset.registrering > p");
+        this.registrerTekst = root.querySelector("fieldset.registrering > p");//velger p elementer under fieldset registrering
 
-        //velger button elemetet til fieldset med classe resultat
-        this.visDeltagereButtonEl = root.querySelector('fieldset.resultat button[type="button"]');
-        this.fraTid = root.querySelector("fieldset.resultat label[for='nedregrense']");
-        this.tilTid = root.querySelector("fieldset.resultat label[for='ovregrense']");
-
+        this.visDeltagereButtonEl = root.querySelector('fieldset.resultat button[type="button"]'); //velger button elemetet til fieldset med classe resultat
+        this.nedreGrense = root.querySelector("#nedregrense");
+        this.ovreGrense = root.querySelector("#ovregrense");
+        this.resultatTekst = root.querySelector(".liste p");
+        this.tBodyResultat = root.querySelector('.resultat tbody');
 
         this.registrerButtonEl.addEventListener('click', () => this.registrerKvitering());
-        this.visDeltagereButtonEl.addEventListener('click', () => this.visKvittering());
+        this.visDeltagereButtonEl.addEventListener('click', () => this.skrivUtKvittering());
 
     }
 
 
     visKvittering(navn, startnummer, sluttid) {
-        this.hidden.classList.remove('hidden');
-        this.hidden.textContent = `Deltager ${navn} med startnummer ${startnummer} ble registrert med sluttid ${sluttid}`;
+        this.registrerTekst.classList.remove('hidden');
+        this.registrerTekst.textContent = `Deltager ${navn} med startnummer ${startnummer} ble registrert med sluttid ${sluttid}`;
     }
 
     // Deklarer klassen sine public og private metoder her
@@ -35,15 +34,73 @@ class DeltagerManager {
         const startnummer = this.startnummer.value;
         const sluttid = this.sluttid.value;
 
-        if(!this.erValid(navn, startnummer,sluttid)){
+        if(!this.erValid(navn, startnummer, sluttid)){
             console.log("er ikkje valid");
             return false;
         }
-        this.deltager.push({navn,startnummer,sluttid});
+
+        const plassering = this.deltager.length + 1;
+        this.deltager.push({navn, startnummer, sluttid, plassering});
+
         this.visKvittering(navn, startnummer, sluttid);
+        console.log("alle deltagere");
         console.log(this.deltager);
-        this.clearInput()
+        this.clearInput();
         return true;
+    }
+
+    skrivUtKvittering(){
+        const nedreGrense = this.nedreGrense.value;
+        const ovreGrense = this.ovreGrense.value;
+        if (!(nedreGrense > ovreGrense)){
+            let sortertTabell = this.deltager.filter(deltager => {
+                if (ovreGrense && deltager.sluttid > ovreGrense) {
+                    return false;
+                }
+                if(nedreGrense && deltager.sluttid < nedreGrense) {
+                    return false;
+                }
+                return true;
+            });
+            sortertTabell.sort((a, b) => a.sluttid.localeCompare(b.sluttid));
+            console.log("sortert liste")
+            console.log(sortertTabell);
+            this.endreTabell(sortertTabell);
+        }
+        else {
+            this.ovreGrense.setCustomValidity("Til tid er over Fra tid")
+            this.ovreGrense.reportValidity();
+            this.ovreGrense.focus();
+        }
+    }
+    endreTabell(deltager) {
+        this.tBodyResultat.textContent = ''; // Clear table content
+
+        if (deltager.length === 0) {
+            this.resultatTekst.classList.add('hidden');
+        } else {
+            for (let i = 0; i < deltager.length; i++) {
+                const createRow = document.createElement("tr");
+
+                const createPlassering = document.createElement("td");
+                const createStartnummer = document.createElement("td");
+                const createNavn = document.createElement("td");
+                const createSluttid = document.createElement("td");
+
+                createPlassering.textContent = `${deltager[i].plassering}`;
+                createStartnummer.textContent = deltager[i].startnummer;
+                createNavn.textContent = deltager[i].navn;
+                createSluttid.textContent = deltager[i].sluttid;
+
+                createRow.appendChild(createPlassering);
+                createRow.appendChild(createStartnummer);
+                createRow.appendChild(createNavn);
+                createRow.appendChild(createSluttid);
+
+                this.tBodyResultat.appendChild(createRow);
+            }
+            this.resultatTekst.classList.add('hidden');
+        }
     }
     erValid(navn, startnummer, sluttid){
         if (!startnummer || !navn || !sluttid) {

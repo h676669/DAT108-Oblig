@@ -109,14 +109,8 @@ class DeltagerManager {
             filtrerteDeltagere.sort((a, b) => a.sluttid.localeCompare(b.sluttid));
 
             // Oppdater tabellen med resultatene
-            this.oppdater
-
-
-            // Sorter deltakerne etter sluttid
-            filtrerteDeltagere.sort((a, b) => a.sluttid.localeCompare(b.sluttid));
-
-            // Oppdater tabellen med resultatene
             this.oppdaterResultatTabell(filtrerteDeltagere);
+            console.log(filtrerteDeltagere);
         }
         // Filtrer deltakerne basert på nedre- og øvregrense
     }
