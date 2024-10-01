@@ -4,7 +4,7 @@ class DeltagerManager {
     constructor(root) {
         // Legg inn kode her
         this.root = root;
-        this.deltagere = [];
+        this.deltager = [];
         this.navn = root.querySelector('#deltagernavn');
         this.sluttid = root.querySelector('#sluttid');
         this.startnummer = root.querySelector('#startnummer');
@@ -28,26 +28,38 @@ class DeltagerManager {
         const startnummer = this.startnummer.value;
         const sluttid = this.sluttid.value;
 
-        if(){
-
+        if(!this.erValidg(navn, startnummer)){
+            return false;
         }
-
-        if(!this.erValidNavn(navn)){
+        this.deltager.push({navn,startnummer,sluttid});
+        this.visKvittering(navn, startnummer, sluttid);
+        return true;
+    }
+    erValidg(navn, startnummer){
+        if (!this.erValidNavn(navn)){
             this.navn.setCustomValidity("Navnet er ugyldig");
             this.navn.reportValidity();
             this.navn.focus();
             return false;
         }
-
-        this.visKvittering(navn, startnummer, sluttid);
-        return true;
+        if(!this.erValudStNr(startnummer)){
+            this.startnummer.setCustomValidity("Navnet er ugyldig");
+            this.startnummer.reportValidity();
+            this.startnummer.focus();
+            return false;
+        }
     }
     erValidNavn(navn){
         const regex = /^[A-Za-zæøåÆØÅ]+(?:[\s-][A-Za-zæøåÆØÅ]+)*$/;
         return regex.test(navn);
     }
     erValudStNr(startnummer){
-
+        for (let i = 0; i < this.deltager.length; i++){
+            if (startnummer === this.deltager[i]){
+                return false;
+            }
+        }
+        return true;
     }
 }
 
