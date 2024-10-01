@@ -17,7 +17,7 @@ class DeltagerManager {
 
         // Legg til event listeners
         this.registrerButton.addEventListener('click', () => this.registrerDeltager());
-        this,this.registrerButton.addEventListener('click', () => this.visDeltagere());
+        this.registrerButton.addEventListener('click', () => this.visDeltagere());
         this.visDeltagereButton.addEventListener('click', () => this.visDeltagere());
     }
 
