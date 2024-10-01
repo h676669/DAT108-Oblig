@@ -77,7 +77,9 @@ class DeltagerManager {
         this.tBodyResultat.textContent = ''; // Clear table content
 
         if (deltager.length === 0) {
-            this.resultatTekst.classList.add('hidden');
+            if (this.resultatTekst.classList.length > 0){
+                this.resultatTekst.classList.remove('hidden');
+            }
         } else {
             for (let i = 0; i < deltager.length; i++) {
                 const createRow = document.createElement("tr");
