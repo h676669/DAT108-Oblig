@@ -28,7 +28,26 @@ class DeltagerManager {
         const startnummer = this.startnummer.value;
         const sluttid = this.sluttid.value;
 
+        if(){
+
+        }
+
+        if(!this.erValidNavn(navn)){
+            this.navn.setCustomValidity("Navnet er ugyldig");
+            this.navn.reportValidity();
+            this.navn.focus();
+            return false;
+        }
+
         this.visKvittering(navn, startnummer, sluttid);
+        return true;
+    }
+    erValidNavn(navn){
+        const regex = /^[A-Za-zæøåÆØÅ]+(?:[\s-][A-Za-zæøåÆØÅ]+)*$/;
+        return regex.test(navn);
+    }
+    erValudStNr(startnummer){
+
     }
 }
 
