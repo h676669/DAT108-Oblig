@@ -8,18 +8,25 @@ class DeltagerManager {
         this.navn = root.querySelector('#deltagernavn');
         this.sluttid = root.querySelector('#sluttid');
         this.startnummer = root.querySelector('#startnummer');
-        this.buttonEl = root.querySelector('#registrerbutton');
-        this.hidden = root.querySelector('#kvittering');
+        this.registrerButtonEl = root.querySelector('#registrerbutton');
+        //velger p elementer under fieldset registrering
+        this.hidden = root.querySelector("fieldset.registrering > p");
 
-        this.buttonEl.addEventListener('click', () => this.registrerKvitering());
-        //this.buttonEl.addEventListener('click', () => this.visKvittering());
+        //velger button elemetet til fieldset med classe resultat
+        this.visDeltagereButtonEl = root.querySelector('fieldset.resultat button[type="button"]');
+        this.fraTid = root.querySelector("fieldset.resultat label[for='nedregrense']");
+        this.tilTid = root.querySelector("fieldset.resultat label[for='ovregrense']");
+
+
+        this.registrerButtonEl.addEventListener('click', () => this.registrerKvitering());
+        this.visDeltagereButtonEl.addEventListener('click', () => this.visKvittering());
 
     }
 
 
     visKvittering(navn, startnummer, sluttid) {
         this.hidden.classList.remove('hidden');
-        this.hidden.textContent = `Deltager ${navn} med startnummer ${startnummer} ble regisrert med sluttid ${sluttid}`;
+        this.hidden.textContent = `Deltager ${navn} med startnummer ${startnummer} ble registrert med sluttid ${sluttid}`;
     }
 
     // Deklarer klassen sine public og private metoder her
@@ -28,7 +35,7 @@ class DeltagerManager {
         const startnummer = this.startnummer.value;
         const sluttid = this.sluttid.value;
 
-        if(!this.erValid(navn, startnummer)){
+        if(!this.erValid(navn, startnummer,sluttid)){
             console.log("er ikkje valid");
             return false;
         }
@@ -38,7 +45,11 @@ class DeltagerManager {
         this.clearInput()
         return true;
     }
-    erValid(navn, startnummer){
+    erValid(navn, startnummer, sluttid){
+        if (!startnummer || !navn || !sluttid) {
+            console.log("slutt tid er teit")
+            return false;
+        }
         if (!this.erValidNavn(navn)){
             this.navn.setCustomValidity("Tillate tegn er kun bokstaver, mellomrom og engek bindestrek mellom delnavn");
             this.navn.reportValidity();
@@ -52,6 +63,7 @@ class DeltagerManager {
             return false;
         }
         return true
+
     }
     erValidNavn(navn){
         const regex = /^[A-Za-zæøåÆØÅ]+(?:[\s-][A-Za-zæøåÆØÅ]+)*$/;
