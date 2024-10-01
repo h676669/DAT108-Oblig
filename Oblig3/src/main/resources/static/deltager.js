@@ -24,42 +24,50 @@ class DeltagerManager {
 
     // Deklarer klassen sine public og private metoder her
     registrerKvitering() {
-        const navn = this.navn.value;
+        const navn = this.omgjorNavn(this.navn.value);
         const startnummer = this.startnummer.value;
         const sluttid = this.sluttid.value;
 
-        if(!this.erValidg(navn, startnummer)){
+        if(!this.erValid(navn, startnummer)){
+            console.log("er ikkje valid");
             return false;
         }
         this.deltager.push({navn,startnummer,sluttid});
         this.visKvittering(navn, startnummer, sluttid);
+        console.log(this.deltager);
+        this.clearInput()
         return true;
     }
-    erValidg(navn, startnummer){
+    erValid(navn, startnummer){
         if (!this.erValidNavn(navn)){
-            this.navn.setCustomValidity("Navnet er ugyldig");
+            this.navn.setCustomValidity("Tillate tegn er kun bokstaver, mellomrom og engek bindestrek mellom delnavn");
             this.navn.reportValidity();
             this.navn.focus();
             return false;
         }
-        if(!this.erValudStNr(startnummer)){
-            this.startnummer.setCustomValidity("Navnet er ugyldig");
+        if(!this.erValidStNr(startnummer)){
+            this.startnummer.setCustomValidity("Startnummeret finnest allerede");
             this.startnummer.reportValidity();
             this.startnummer.focus();
             return false;
         }
+        return true
     }
     erValidNavn(navn){
         const regex = /^[A-Za-zæøåÆØÅ]+(?:[\s-][A-Za-zæøåÆØÅ]+)*$/;
         return regex.test(navn);
     }
-    erValudStNr(startnummer){
-        for (let i = 0; i < this.deltager.length; i++){
-            if (startnummer === this.deltager[i]){
-                return false;
-            }
-        }
-        return true;
+    erValidStNr(startnummer){
+        return !this.deltager.some(deltager => deltager.startnummer === startnummer);
+
+    }
+    clearInput(){
+        this.startnummer.value = '';
+        this.navn.value = '';
+        this.sluttid.value='';
+    }
+    omgjorNavn(navn){
+        return navn.split(/\s+/).map(del => del.charAt(0).toUpperCase() + del.slice(1)).join(' ');
     }
 }
 
