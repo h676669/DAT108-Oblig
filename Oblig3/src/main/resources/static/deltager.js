@@ -83,8 +83,8 @@ class DeltagerManager {
             this.resultatTekst.classList.remove('hidden');
             this.ovreGrense.setCustomValidity("Øvre grense må være større enn nedre");
             console.log(this.ovreGrense.validity.valid)
-            this.ovreGrense.reportValidity();
             this.ovreGrense.focus();
+            this.ovreGrense.reportValidity();
         }
     }
     endreTabell(deltager) {
@@ -124,21 +124,21 @@ class DeltagerManager {
             console.log("slutt tid er teit")
             if(!sluttid){
                 this.sluttid.setCustomValidity("sluttid er ikkje satt");
-                this.sluttid.reportValidity();
                 this.sluttid.focus();
+                this.sluttid.reportValidity();
             }
             return false;
         }
         if (!this.erValidNavn(navn)){
             this.navn.setCustomValidity("Tillate tegn er kun bokstaver, mellomrom og engek bindestrek mellom delnavn");
-            this.navn.reportValidity();
             this.navn.focus();
+            this.navn.reportValidity();
             return false;
         }
         if(!this.erValidStNr(startnummer)){
             this.startnummer.setCustomValidity("Startnummeret finnest allerede");
-            this.startnummer.reportValidity();
             this.startnummer.focus();
+            this.startnummer.reportValidity();
             return false;
         }
         this.sluttid.setCustomValidity('');
