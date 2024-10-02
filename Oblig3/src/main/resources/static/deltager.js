@@ -22,13 +22,11 @@ class DeltagerManager {
 
     }
 
-
+    // Deklarer klassen sine public og private metoder her
     visKvittering(navn, startnummer, sluttid) {
         this.registrerTekst.classList.remove('hidden');
         this.registrerTekst.textContent = `Deltager ${navn} med startnummer ${startnummer} ble registrert med sluttid ${sluttid}`;
     }
-
-    // Deklarer klassen sine public og private metoder her
     registrerKvitering() {
         const navn = this.omgjorNavn(this.navn.value);
         const startnummer = this.startnummer.value;
@@ -39,8 +37,18 @@ class DeltagerManager {
             return false;
         }
 
-        const plassering = this.deltager.length + 1;
-        this.deltager.push({"navn": navn, "startnummer" :startnummer,"sluttid" : sluttid,"plassering" : plassering});
+        const nyDeltager = { "navn": navn, "startnummer": startnummer, "sluttid": sluttid };
+
+        let plassering = this.deltager.findIndex(deltager => deltager.sluttid > sluttid);
+        if (plassering === -1) {
+            this.deltager.push(nyDeltager);
+        } else {
+            this.deltager.splice(plassering, 0, nyDeltager);
+        }
+
+        this.deltager.forEach((deltager, plassering) => {
+            deltager.plassering = plassering + 1;
+        });
 
         this.visKvittering(navn, startnummer, sluttid);
         console.log("alle deltagere");
@@ -49,9 +57,11 @@ class DeltagerManager {
         return true;
     }
 
+
     skrivUtKvittering(){
         const nedreGrense = this.nedreGrense.value;
         const ovreGrense = this.ovreGrense.value;
+
         if (!(nedreGrense > ovreGrense)){
             let sortertTabell = this.deltager.filter(deltager => {
                 if (ovreGrense && deltager.sluttid > ovreGrense) {
@@ -68,13 +78,17 @@ class DeltagerManager {
             this.endreTabell(sortertTabell);
         }
         else {
-            this.ovreGrense.setCustomValidity("Til tid er over Fra tid")
+            console.log("hei");
+            this.tBodyResultat.textContent = '';
+            this.registrerTekst.classList.remove('hidden');
+            this.ovreGrense.setCustomValidity("Øvre grense må være større enn nedre");
+            console.log(this.ovreGrense.validity.valid)
             this.ovreGrense.reportValidity();
             this.ovreGrense.focus();
         }
     }
     endreTabell(deltager) {
-        this.tBodyResultat.textContent = ''; // Clear table content
+        this.tBodyResultat.textContent = '';
 
         if (deltager.length === 0) {
             if (this.resultatTekst.classList.length > 0){
@@ -104,10 +118,11 @@ class DeltagerManager {
             this.resultatTekst.classList.add('hidden');
         }
     }
+
     erValid(navn, startnummer, sluttid){
         if (!startnummer || !navn || !sluttid) {
             console.log("slutt tid er teit")
-            if(!sluttid){
+            if(sluttid){
                 this.sluttid.setCustomValidity("sluttid er ikkje satt");
                 this.sluttid.reportValidity();
                 this.sluttid.focus();
