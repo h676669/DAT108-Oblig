@@ -9,7 +9,7 @@ class DeltagerManager {
         this.sluttid = root.querySelector('#sluttid');
         this.startnummer = root.querySelector('#startnummer');
         this.registrerButtonEl = root.querySelector('#registrerbutton');
-        this.registrerTekst = root.querySelector("fieldset.registrering > p");//velger p elementer under fieldset registrering
+        this.registrerTekst = root.querySelector(".registrering p");//velger p elementer under fieldset registrering
 
         this.visDeltagereButtonEl = root.querySelector('fieldset.resultat button[type="button"]'); //velger button elemetet til fieldset med classe resultat
         this.nedreGrense = root.querySelector("#nedregrense");
