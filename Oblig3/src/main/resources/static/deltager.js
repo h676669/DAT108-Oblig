@@ -80,7 +80,7 @@ class DeltagerManager {
         else {
             console.log("hei");
             this.tBodyResultat.textContent = '';
-            this.registrerTekst.classList.remove('hidden');
+            this.resultatTekst.classList.remove('hidden');
             this.ovreGrense.setCustomValidity("Øvre grense må være større enn nedre");
             console.log(this.ovreGrense.validity.valid)
             this.ovreGrense.reportValidity();
