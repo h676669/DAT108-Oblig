@@ -40,7 +40,7 @@ class DeltagerManager {
         }
 
         const plassering = this.deltager.length + 1;
-        this.deltager.push({navn, startnummer, sluttid, plassering});
+        this.deltager.push({"navn": navn, "startnummer" :startnummer,"sluttid" : sluttid,"plassering" : plassering});
 
         this.visKvittering(navn, startnummer, sluttid);
         console.log("alle deltagere");
