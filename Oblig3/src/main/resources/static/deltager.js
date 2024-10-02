@@ -126,6 +126,9 @@ class DeltagerManager {
             this.startnummer.focus();
             return false;
         }
+        this.sluttid.setCustomValidity('');
+        this.navn.setCustomValidity('');
+        this.startnummer.setCustomValidity('');
         return true
 
     }
