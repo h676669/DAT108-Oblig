@@ -122,7 +122,7 @@ class DeltagerManager {
     erValid(navn, startnummer, sluttid){
         if (!startnummer || !navn || !sluttid) {
             console.log("slutt tid er teit")
-            if(sluttid){
+            if(!sluttid){
                 this.sluttid.setCustomValidity("sluttid er ikkje satt");
                 this.sluttid.reportValidity();
                 this.sluttid.focus();
