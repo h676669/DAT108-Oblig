@@ -137,7 +137,7 @@ class DeltagerManager {
         return regex.test(navn);
     }
     erValidStNr(startnummer){
-        return !this.deltager.some(deltager => deltager.startnummer === startnummer);
+        return !this.deltager.some(deltager => deltager.startnummer === startnummer && startnummer > 0);
 
     }
     clearInput(){
