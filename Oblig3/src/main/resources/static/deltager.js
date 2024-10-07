@@ -128,19 +128,23 @@ class DeltagerManager {
                 this.sluttid.reportValidity();
             }
             return false;
+        }else {
+            if(!this.erValidStNr(startnummer)){
+                this.navn.setCustomValidity('');
+                this.startnummer.setCustomValidity("Startnummeret finnest allerede eller er har en verdi på under 1");
+                this.startnummer.focus();
+                this.startnummer.reportValidity();
+                return false;
+            }
+            if (!this.erValidNavn(navn)){
+                this.startnummer.setCustomValidity('');
+                this.navn.setCustomValidity("Tillate tegn er kun bokstaver, mellomrom og enkel bindestrek mellom delnavn");
+                this.navn.focus();
+                this.navn.reportValidity();
+                return false;
+            }
         }
-        if (!this.erValidNavn(navn)){
-            this.navn.setCustomValidity("Tillate tegn er kun bokstaver, mellomrom og enkel bindestrek mellom delnavn");
-            this.navn.focus();
-            this.navn.reportValidity();
-            return false;
-        }
-        if(!this.erValidStNr(startnummer)){
-            this.startnummer.setCustomValidity("Startnummeret finnest allerede eller er har en verdi på under 1");
-            this.startnummer.focus();
-            this.startnummer.reportValidity();
-            return false;
-        }
+
         this.sluttid.setCustomValidity('');
         this.navn.setCustomValidity('');
         this.startnummer.setCustomValidity('');
