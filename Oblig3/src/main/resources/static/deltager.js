@@ -81,7 +81,7 @@ class DeltagerManager {
             console.log("hei");
             this.tBodyResultat.textContent = '';
             this.resultatTekst.classList.remove('hidden');
-            this.ovreGrense.setCustomValidity("Øvre grense må være større enn nedre");
+            this.ovreGrense.setCustomValidity("Fra må være større enn til");
             console.log(this.ovreGrense.validity.valid)
             this.ovreGrense.focus();
             this.ovreGrense.reportValidity();
