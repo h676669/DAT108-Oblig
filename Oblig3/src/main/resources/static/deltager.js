@@ -130,7 +130,7 @@ class DeltagerManager {
             return false;
         }
         if (!this.erValidNavn(navn)){
-            this.navn.setCustomValidity("Tillate tegn er kun bokstaver, mellomrom og engek bindestrek mellom delnavn");
+            this.navn.setCustomValidity("Tillate tegn er kun bokstaver, mellomrom og enkel bindestrek mellom delnavn");
             this.navn.focus();
             this.navn.reportValidity();
             return false;
@@ -161,7 +161,10 @@ class DeltagerManager {
         this.sluttid.value='';
     }
     omgjorNavn(navn){
-        return navn.split(/\s+/).map(del => del.charAt(0).toUpperCase() + del.slice(1)).join(' ');
+        return navn.split(/[\s-]+/)
+            .map(del => del.charAt(0).toUpperCase() + del.slice(1))
+            .join('-');
+
     }
 }
 
