@@ -38,18 +38,8 @@ class DeltagerManager {
         }
 
         const nyDeltager = { "navn": navn, "startnummer": startnummer, "sluttid": sluttid };
-
-        let plassering = this.deltager.findIndex(deltager => deltager.sluttid > sluttid);
-        if (plassering === -1) {
-            this.deltager.push(nyDeltager);
-        } else {
-            this.deltager.splice(plassering, 0, nyDeltager);
-        }
-
-        this.deltager.forEach((deltager, plassering) => {
-            deltager.plassering = plassering + 1;
-        });
-
+        this.deltager.push(nyDeltager);
+        this.deltager.sort((a,b) => a.sluttid.localeCompare(b.sluttid));
         this.visKvittering(navn, startnummer, sluttid);
         console.log("alle deltagere");
         console.log(this.deltager);
@@ -100,7 +90,7 @@ class DeltagerManager {
                 const createNavn = document.createElement("td");
                 const createSluttid = document.createElement("td");
 
-                createPlassering.textContent = `${deltager[i].plassering}`;
+                createPlassering.textContent = (this.deltager.indexOf(deltager[i])+1).toString();
                 createStartnummer.textContent = deltager[i].startnummer;
                 createNavn.textContent = deltager[i].navn;
                 createSluttid.textContent = deltager[i].sluttid;
