@@ -72,9 +72,6 @@ class DeltagerManager {
                 }
                 return true;
             });
-            sortertTabell.sort((a, b) => a.sluttid.localeCompare(b.sluttid));
-            console.log("sortert liste")
-            console.log(sortertTabell);
             this.endreTabell(sortertTabell);
         }
         else {
