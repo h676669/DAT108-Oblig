@@ -136,7 +136,7 @@ class DeltagerManager {
             return false;
         }
         if(!this.erValidStNr(startnummer)){
-            this.startnummer.setCustomValidity("Startnummeret finnest allerede");
+            this.startnummer.setCustomValidity("Startnummeret finnest allerede eller er har en verdi på under 1");
             this.startnummer.focus();
             this.startnummer.reportValidity();
             return false;
@@ -152,7 +152,7 @@ class DeltagerManager {
         return regex.test(navn);
     }
     erValidStNr(startnummer){
-        return !this.deltager.some(deltager => deltager.startnummer === startnummer && startnummer > 0);
+        return (!this.deltager.some(deltager => deltager.startnummer === startnummer) && !(startnummer <= 0));
 
     }
     clearInput(){
