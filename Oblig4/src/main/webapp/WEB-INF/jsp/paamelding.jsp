@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Påmelding</title>
+    <link rel="stylesheet" href="css/simple.css">
 </head>
 <body>
 <form action="" method="get">
