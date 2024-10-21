@@ -4,7 +4,6 @@
     <title>Påmelding</title>
 </head>
 <body>
-<h1>Hallo</h1>
 <form action="" method="get">
     <h1>Påmelding</h1>
     <br>
