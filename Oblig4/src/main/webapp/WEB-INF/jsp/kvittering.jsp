@@ -10,6 +10,6 @@
 <p>${etternavn}</p>
 <p>${mbnummer}</p>
 <p>${kjonn}</p>
-<a href="deltagerliste.jsp"
+<a href="deltagerliste.jsp"></a>
 </body>
 </html>
