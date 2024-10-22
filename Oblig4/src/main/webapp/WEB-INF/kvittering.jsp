@@ -12,8 +12,8 @@
 <html>
 <head>
     <title>Påmeldingsbekreftelse</title>
-    <link href="css/simple.css" rel="stylesheet" type="text/css" />
-    <script src="js/myscript.js" defer></script>
+    <link href="simple.css" rel="stylesheet" type="text/css" />
+    <script src="validering.js" defer></script>
 </head>
 <body>
     <h2>Påmelding</h2>
