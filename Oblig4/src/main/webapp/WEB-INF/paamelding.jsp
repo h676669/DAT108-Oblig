@@ -32,8 +32,8 @@
         <br>
         <label>Kjønn</label>
         <br>
-        <label for="mann">Mann</label><input type="radio" id="mann" name="kjonn" required>
-        <label for="kvinne">Kvinne</label><input type="radio" name="kjonn" id="kvinne" required>
+        <label for="mann">Mann</label><input type="radio" id="mann" name="kjonn" value="Mann" required>
+        <label for="kvinne">Kvinne</label><input type="radio" name="kjonn" id="kvinne" value="Kvinne" required>
         <br>
         <br>
         <button type="submit">Meld meg på</button>
