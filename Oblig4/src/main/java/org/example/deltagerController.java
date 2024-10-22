@@ -21,10 +21,10 @@ public class deltagerController {
     }
     @GetMapping("/kvittering")
     public String kvittering(String fornavn, String etternavn,
-                             String mbunmmer, String kjonn, Model model ){
+                             String mbnummer, String kjonn, Model model ){
         model.addAttribute("fornavn", fornavn);
         model.addAttribute("etternavn", etternavn);
-        model.addAttribute("mbunmmer", mbunmmer);
+        model.addAttribute("mbnummer", mbnummer);
         model.addAttribute("kjonn", kjonn);
 
         return "kvittering";

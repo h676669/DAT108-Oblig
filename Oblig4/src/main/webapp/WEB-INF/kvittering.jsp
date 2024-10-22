@@ -1,5 +1,3 @@
-
-
 <%@ page contentType="text/html;charset=UTF-8"%>
 
 <%-- Denne tar bort whitespace i toppen av generert HTML --%>
@@ -22,6 +20,6 @@
     <p>${etternavn}</p>
     <p>${mbnummer}</p>
     <p>${kjonn}</p>
-    <a href="deltagerliste.jsp">deltagerliste</a>
+    <a href="deltagerliste">deltagerliste</a>
 </body>
 </html>
