@@ -11,8 +11,8 @@
 <html>
 <head>
     <title>Påmelding</title>
-    <link rel="stylesheet" href="../../resources/static/css/simple.css">
-    <script src="../../resources/static/js/validering.js" defer></script>
+    <link rel="stylesheet" href="/css/simple.css">
+    <script src="/js/validering.js" defer></script>
 </head>
 <body>
 <div>
