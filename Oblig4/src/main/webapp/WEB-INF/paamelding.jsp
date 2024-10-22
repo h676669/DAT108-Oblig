@@ -12,7 +12,7 @@
 <head>
     <title>Påmelding</title>
     <link rel="stylesheet" href="simple.css">
-    <link rel="javascript" href="validering.js">
+    <script src="validering.js" defer></script>
 </head>
 <body>
 <div>
@@ -21,7 +21,7 @@
         <br>
         <label for="fornavn">Fornavn</label><br><input type="text" id="fornavn" name="fornavn" required>
         <br>
-        <label for="etteravn">Etternavn</label><br><input type="text" id="etteravn" name="etteravn" required>
+        <label for="etternavn">Etternavn</label><br><input type="text" id="etternavn" name="etternavn" required>
         <br>
         <label for="mbnummer">Mobilnummer</label><br><input type="text" id="mbnummer" name="mbnummer" required>
         <br>
