@@ -11,8 +11,8 @@
 <html>
 <head>
     <title>Påmelding</title>
-    <link rel="stylesheet" href="simple.css">
-    <script src="validering.js" defer></script>
+    <link rel="stylesheet" href="../../resources/static/css/simple.css">
+    <script src="../../resources/static/js/validering.js" defer></script>
 </head>
 <body>
 <div>
@@ -29,9 +29,12 @@
         <br>
         <label for="repassword">Repiter passord</label><br><input type="password" id="repassword" name="repassword" required>
         <br>
-        <p>Kjønn</p>
+        <br>
+        <label>Kjønn</label>
+        <br>
         <label for="mann">Mann</label><input type="radio" id="mann" name="kjonn" required>
         <label for="kvinne">Kvinne</label><input type="radio" name="kjonn" id="kvinne" required>
+        <br>
         <br>
         <button type="submit">Meld meg på</button>
     </form>

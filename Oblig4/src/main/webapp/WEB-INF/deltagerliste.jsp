@@ -13,7 +13,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="simple.css">
+    <link rel="stylesheet" href="../../resources/static/css/simple.css">
     <title>Deltagerliste</title>
 </head>
 <body>
