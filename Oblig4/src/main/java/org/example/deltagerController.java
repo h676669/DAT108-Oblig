@@ -20,7 +20,13 @@ public class deltagerController {
         return "deltagerliste";
     }
     @GetMapping("/kvittering")
-    public String kvittering(){
+    public String kvittering(String fornavn, String etternavn,
+                             String mbunmmer, String kjonn, Model model ){
+        model.addAttribute("fornavn", fornavn);
+        model.addAttribute("etternavn", etternavn);
+        model.addAttribute("mbunmmer", mbunmmer);
+        model.addAttribute("kjonn", kjonn);
+
         return "kvittering";
     }
 

@@ -16,7 +16,7 @@
 </head>
 <body>
 <div>
-    <form action="deltagerliste" method="get">
+    <form action="kvittering" method="get">
         <h1>Påmelding</h1>
         <br>
         <label for="fornavn">Fornavn</label><br><input type="text" id="fornavn" name="fornavn" required>
