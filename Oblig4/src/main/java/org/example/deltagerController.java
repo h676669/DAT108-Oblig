@@ -19,5 +19,9 @@ public class deltagerController {
     public String deltagerliste(){
         return "deltagerliste";
     }
+    @GetMapping("/kvittering")
+    public String kvittering(){
+        return "kvittering";
+    }
 
 }

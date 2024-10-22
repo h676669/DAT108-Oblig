@@ -12,30 +12,29 @@
 <head>
     <title>Påmelding</title>
     <link rel="stylesheet" href="simple.css">
+    <link rel="javascript" href="validering.js">
 </head>
 <body>
 <div>
-
+    <form action="deltagerliste" method="get">
+        <h1>Påmelding</h1>
+        <br>
+        <label for="fornavn">Fornavn</label><br><input type="text" id="fornavn" name="fornavn" required>
+        <br>
+        <label for="etteravn">Etternavn</label><br><input type="text" id="etteravn" name="etteravn" required>
+        <br>
+        <label for="mbnummer">Mobilnummer</label><br><input type="text" id="mbnummer" name="mbnummer" required>
+        <br>
+        <label for="password">Passord</label><br><input type="password" id="password" name="password" required>
+        <br>
+        <label for="repassword">Repiter passord</label><br><input type="password" id="repassword" name="repassword" required>
+        <br>
+        <p>Kjønn</p>
+        <label for="mann">Mann</label><input type="radio" id="mann" name="kjonn" required>
+        <label for="kvinne">Kvinne</label><input type="radio" name="kjonn" id="kvinne">
+        <br>
+        <button type="submit">Meld meg på</button>
+    </form>
 </div>
-<form action="" method="get">
-    <h1>Påmelding</h1>
-    <br>
-    <label for="fornavn">Fornavn</label><br><input type="text" id="fornavn" name="fornavn" required>
-    <br>
-    <label for="etteravn">Etternavn</label><br><input type="text" id="etteravn" name="etteravn" required>
-    <br>
-    <label for="mbnummer">Mobilnummer</label><br><input type="text" id="mbnummer" name="mbnummer" required>
-    <br>
-    <label for="password">Passord</label><br><input type="password" id="password" name="password" required>
-    <br>
-    <label for="repassword">Repiter passord</label><br><input type="password" id="repassword" name="repassword" required>
-    <br>
-    <p>Kjønn</p>
-    <label for="mann">Mann</label><input type="radio" id="mann" name="kjonn" required>
-    <label for="kvinne">Kvinne</label><input type="radio" name="kjonn" id="kvinne">
-    <br>
-    <button type="submit">Meld meg på</button>
-</form>
-
 </body>
 </html>
