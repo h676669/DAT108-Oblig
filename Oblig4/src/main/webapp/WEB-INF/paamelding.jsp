@@ -15,7 +15,7 @@
     <label for="etteravn"></label><input type="text" id="etteravn" name="etteravn" required>
     <br>
     <p>Mobilnummer</p>
-    <label for="mbnummer"></label><input type="number" id="mbnummer" name="mbnummer" required>
+    <label for="mbnummer"></label><input type="text" id="mbnummer" name="mbnummer" required>
     <br>
     <p>Passord</p>
     <label for="password"></label><input type="password" id="password" name="password" required>
