@@ -11,8 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
         return name.replace(/\b[a-zæøå]/g, char => char.toUpperCase());
     }
 
-    const validateName = (name) => {
+    const validateFirstName = (name) => {
         const validChars = /^[A-Za-zæøåÆØÅ]+(?:[\s-][A-Za-zæøåÆØÅ]+)*$/.test(name);
+        const validLength = name.length >= 2 && name.length <= 20;
+        return validChars && validLength;
+    }
+    const validateLastName = (name) => {
+        const validChars = /^[A-Za-zæøåÆØÅ]+(?:[-][A-Za-zæøåÆØÅ]+)*$/.test(name);
         const validLength = name.length >= 2 && name.length <= 20;
         return validChars && validLength;
     }
@@ -30,13 +35,13 @@ document.addEventListener("DOMContentLoaded", function () {
         fornavnInput.value = fornavn;
         etternavnInput.value = etternavn;
 
-        if(!validateName(fornavn)){
+        if(!validateFirstName(fornavn)){
             event.preventDefault()
             alert("Fornavn må være mellom 2 og 20 bokstaver og inneholde gyldige karakterer(A-Å, mellomrom og bindestrek)")
         }
-        if(!validateName(etternavn)){
+        if(!validateLastName(etternavn)){
             event.preventDefault()
-            alert("etternavn må være mellom 2 og 20 bokstaver og inneholde gyldige karakterer(A-Å, mellomrom og bindestrek)")
+            alert("etternavn må være mellom 2 og 20 bokstaver og inneholde gyldige karakterer(A-Å og bindestrek)")
         }
 
         const mobilnummer = mobilnummerInput.value;
