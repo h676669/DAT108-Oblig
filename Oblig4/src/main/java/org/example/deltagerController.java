@@ -15,5 +15,9 @@ public class deltagerController {
     public String paamelding(){
         return "paamelding";
     }
+    @GetMapping("/deltagerliste")
+    public String deltagerliste(){
+        return "deltagerliste";
+    }
 
 }
