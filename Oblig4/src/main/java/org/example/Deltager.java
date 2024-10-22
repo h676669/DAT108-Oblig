@@ -1,15 +1,23 @@
 package org.example;
 
+import java.util.List;
+
 public class Deltager {
     private String mobil;
     private String passord;
     private String fornavn;
     private String etternavn;
-    private String kjonn;
+    private Kjonn kjonn;
 
-    public Deltager(String mobil, String passord, String fornavn, String etternavn, String kjonn) {
+    public Deltager(String mobil, String passord, String fornavn, String etternavn, Kjonn kjonn) {
         this.mobil = mobil;
         this.passord = passord;
+        this.fornavn = fornavn;
+        this.etternavn = etternavn;
+        this.kjonn = kjonn;
+    }
+    public Deltager(String mobil, String fornavn, String etternavn, Kjonn kjonn) {
+        this.mobil = mobil;
         this.fornavn = fornavn;
         this.etternavn = etternavn;
         this.kjonn = kjonn;
@@ -47,11 +55,11 @@ public class Deltager {
         this.etternavn = etternavn;
     }
 
-    public String getKjonn() {
+    public Kjonn getKjonn() {
         return kjonn;
     }
 
-    public void setKjonn(String kjonn) {
+    public void setKjonn(Kjonn kjonn) {
         this.kjonn = kjonn;
     }
 }
