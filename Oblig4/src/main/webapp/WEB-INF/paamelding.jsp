@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="simple.css">
 </head>
 <body>
+<div>
+
+</div>
 <form action="" method="get">
     <h1>Påmelding</h1>
     <br>
@@ -28,8 +31,8 @@
     <label for="repassword">Repiter passord</label><br><input type="password" id="repassword" name="repassword" required>
     <br>
     <p>Kjønn</p>
-    <label for="mann">Mann</label><input type="radio" id="mann" name="mann" required>
-    <label for="kvinne">Kvinne</label><input type="radio" name="kvinne" id="kvinne">
+    <label for="mann">Mann</label><input type="radio" id="mann" name="kjonn" required>
+    <label for="kvinne">Kvinne</label><input type="radio" name="kjonn" id="kvinne">
     <br>
     <button type="submit">Meld meg på</button>
 </form>
