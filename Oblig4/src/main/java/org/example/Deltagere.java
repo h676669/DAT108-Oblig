@@ -15,7 +15,8 @@ public class Deltagere {
     ));
 
     public List<Deltager> getDeltagerliste() {
-        Deltagerliste.sort(Comparator.comparing(Deltager::getFornavn).thenComparing(Deltager::getEtternavn));
+        Deltagerliste.sort(Comparator.comparing((Deltager d) -> d.getFornavn().toLowerCase())
+                .thenComparing((deltager -> deltager.getEtternavn().toLowerCase())));
         return Deltagerliste;
     }
 
