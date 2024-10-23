@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class Deltagere {
@@ -14,6 +15,7 @@ public class Deltagere {
     ));
 
     public List<Deltager> getDeltagerliste() {
+        Deltagerliste.sort(Comparator.comparing(Deltager::getFornavn).thenComparing(Deltager::getEtternavn));
         return Deltagerliste;
     }
 
