@@ -54,11 +54,16 @@ public class TestDeltagere {
     }
 
     @Test
-    void testMobilNummerRiktig(){
+    void testMobilnummer(){
         testDeltager.setMobil(null);
         sjekkOmErFeil("Servant: Mobiwnyummew må OwO væwe nøyaktig 8 siffew og kan ikke starte med 0.");
         testDeltager.setMobil("01234567");
         sjekkOmErFeil("Servant: Mobiwnyummew må OwO væwe nøyaktig 8 siffew og kan ikke starte med 0.");
+    }
+    @Test
+    void testKjonn(){
+        testDeltager.setKjonn(null);
+        sjekkOmErFeil("kan ikkje være tom");
     }
 
 

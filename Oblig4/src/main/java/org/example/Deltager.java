@@ -24,7 +24,7 @@ public class Deltager {
     @NotNull(message = "Servant: E-E-Ettewnyavn må OwO væwe mewwom 2 og 20 bokstavew.")
     private String etternavn;
 
-    @NotNull
+    @NotNull(message = "kan ikkje være tom")
     private Kjonn kjonn;
 
     public Deltager() {
