@@ -445,12 +445,12 @@ select:not([multiple]) {
     padding-right: 25px;
 }
 
-/* checkbox and radio button style */
 input[type="checkbox"],
 input[type="radio"] {
     vertical-align: middle;
     position: relative;
-}
+    display: inline-block;
+    }
 
 input[type="radio"] {
     border-radius: 100%;
@@ -500,23 +500,27 @@ input[type="radio"]:checked::after {
 }
 
 /* Ensures the checkbox and radio inputs do not have a set width like other input fields */
+
 input[type="checkbox"],
 input[type="radio"] {
     width: auto;
 }
 
 /* Set a height for color input */
+
 input[type="color"] {
     height: 2.5rem;
     padding: 0.2rem;
 }
 
 /* do not show border around file selector button */
+
 input[type="file"] {
     border: 0;
 }
 
 /* Misc body elements */
+
 hr {
     color: var(--border);
     border-top: 1px;
@@ -566,6 +570,7 @@ dt {
 }
 
 /* Use mono font for code elements */
+
 code,
 pre,
 pre span,
@@ -591,6 +596,7 @@ pre {
 }
 
 /* Fix embedded code within pre */
+
 pre code {
     color: var(--preformatted);
     background: none;
@@ -601,6 +607,7 @@ pre code {
 /* Progress bars */
 /* Declarations are repeated because you */
 /* cannot combine vendor-specific selectors */
+
 progress {
     width: 100%;
 }
@@ -629,3 +636,4 @@ progress::-moz-progress-bar {
 progress:indeterminate::-moz-progress-bar {
     background-color: var(--accent-bg);
 }
+

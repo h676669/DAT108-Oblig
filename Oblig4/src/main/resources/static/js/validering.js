@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
-    const mobilnummerInput = document.getElementById("mbnummer");
+    const mobilnummerInput = document.getElementById("mobil");
     const fornavnInput = document.getElementById("fornavn");
     const etternavnInput = document.getElementById("etternavn");
     const passwordInput = document.getElementById("password");

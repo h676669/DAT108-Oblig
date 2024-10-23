@@ -14,17 +14,17 @@
     <script src="/js/validering.js" defer></script>
 </head>
 <body>
+<h2>Party Påmeldingsbekreftelse</h2>
 <div style="color: red">
     <p>${error}</p>
 </div>
 <div style="color: green">
     <p>${success}</p>
 </div>
-<h2>Party Påmeldingsbekreftelse</h2>
-<p>Fornavn: ${fornavn}</p>
-<p>Etternavn: ${etternavn}</p>
-<p>Mobilnummer: ${mbnummer}</p>
-<p>Kjønn: ${kjonn}</p>
-<a href="deltagerliste">deltagerliste</a>
+<p>Fornavn:<br>${deltager.fornavn}</p>
+<p>Etternavn:<br>${deltager.etternavn}</p>
+<p>Mobilnummer:<br>${deltager.mobil}</p>
+<p>Kjønn:<br>${deltager.kjonn}</p>
+<a href="/deltagerliste">deltagerliste</a>
 </body>
 </html>

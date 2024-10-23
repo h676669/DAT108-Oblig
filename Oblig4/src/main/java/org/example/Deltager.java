@@ -9,6 +9,9 @@ public class Deltager {
     private String etternavn;
     private Kjonn kjonn;
 
+    public Deltager() {
+    }
+
     public Deltager(String mobil, String passord, String fornavn, String etternavn, Kjonn kjonn) {
         this.mobil = mobil;
         this.passord = passord;
