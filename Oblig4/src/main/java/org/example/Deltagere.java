@@ -42,4 +42,16 @@ public class Deltagere {
         }
         return true;
     }
+    public void skrivUtDeltagere(){
+        int i = 0;
+        for (Deltager deltager : Deltagerliste) {
+            System.out.println();
+            System.out.println("Deltager "+i);
+            System.out.print("Fornavn: "+deltager.getFornavn() + " ");
+            System.out.print("Etternavn: "+deltager.getEtternavn() + " ");
+            System.out.print("Mobil: "+deltager.getMobil() + " ");
+            System.out.print("Kjonn: "+deltager.getKjonn() + " ");
+            i++;
+        };
+    }
 }
