@@ -29,6 +29,7 @@ public class Deltagere {
             Deltagerliste.add(deltager);
             return true;
         }
+        System.out.println("noe gikk galt");
         return false;
     }
     private boolean ValiderBruker(Deltager deltager) {
