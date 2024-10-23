@@ -15,13 +15,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestDeltagere {
-    private Deltagere deltagere;
     private Validator validator;
     private Deltager testDeltager;
 
     @BeforeEach
     void setUp() {
-        deltagere = new Deltagere();
         validator = Validation.buildDefaultValidatorFactory().getValidator();
         testDeltager = new Deltager("87654321","12345678","TestFornavn","TestEtternavn",Kjonn.Kvinne);
     }
