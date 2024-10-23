@@ -31,12 +31,13 @@ public class Deltagere {
         return false;
     }
     private boolean ValiderBruker(Deltager deltager) {
-        if (deltager.getFornavn() == null || deltager.getFornavn().length() < 2 || deltager.getFornavn().length() > 20) {
+        if (deltager.getFornavn() == null ||!deltager.getFornavn().matches("^[A-Za-zÆØÅæøåäöüßÄÖÜ\\- ]{2,20}$")) {
             return false;
         }
-        if (deltager.getEtternavn() == null || deltager.getEtternavn().length() < 2 || deltager.getEtternavn().length() > 20) {
+        if (deltager.getEtternavn() == null || !deltager.getEtternavn().matches("^[A-Za-zÆØÅæøåäöüßÄÖÜ\\- ]{2,20}$")) {
             return false;
         }
+
         if (deltager.getMobil() == null || !deltager.getMobil().matches("^[1-9]\\d{7}$")) {
             return false;
         }
