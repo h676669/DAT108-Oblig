@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Deltagere {
-    public static final List<Deltager> Deltagerliste = new ArrayList<>(List.of(
+    public List<Deltager> Deltagerliste = new ArrayList<>(Arrays.asList(
             new Deltager("23456789", "Anne", "Panne", Kjonn.Kvinne),
             new Deltager("90123456", "Arne", "Arnese", Kjonn.Mann),
             new Deltager("12345679", "Lars-Petter", "Helland", Kjonn.Mann),
@@ -15,8 +15,10 @@ public class Deltagere {
     ));
 
     public List<Deltager> getDeltagerliste() {
+        skrivUtDeltagere();
         Deltagerliste.sort(Comparator.comparing((Deltager d) -> d.getFornavn().toLowerCase())
                 .thenComparing((deltager -> deltager.getEtternavn().toLowerCase())));
+        System.out.println("ting ble gjort her");
         return Deltagerliste;
     }
 
