@@ -4,19 +4,30 @@ import org.example.Kjonn;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+
+
+import java.util.Set;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestDeltagere {
-    Deltagere deltagere;
+    private Deltagere deltagere;
+    private Validator validator;
+    private Deltager testDeltager;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         deltagere = new Deltagere();
+        validator = Validation.buildDefaultValidatorFactory().getValidator();
+        testDeltager = new Deltager("87654321","12345678","TestFornavn","TestEtternavn",Kjonn.Kvinne);
     }
 
     @Test
-    public void testLeggTilDeltagere() {
+    void testLeggTilDeltagere() {
         //mobil må være unik
         Deltager testRiktigDeltager = new Deltager("12345678","12345678","Fornavn","Etternavn", Kjonn.Mann);
         Deltager testMobilFeil = new Deltager("1234567","12345678","Fornavn","Etternavn", Kjonn.Mann);
@@ -29,5 +40,26 @@ public class TestDeltagere {
         assertFalse(deltagere.leggTilDeltager(testPassordFeil));
         assertFalse(deltagere.leggTilDeltager(testFornavnFeil));
         assertFalse(deltagere.leggTilDeltager(testEtternavnFeil));
+    }
+
+    @Test
+    void testDeltagerHarGyldigInitVerdier(){
+        Set<ConstraintViolation<Deltager>> constraintViolations = validator.validate(testDeltager);
+        assertTrue(constraintViolations.isEmpty());
+    }
+    @Test
+    void passordErObligatorisk(){
+        testDeltager.setPassord(null);
+        sjekkOmErFeil("Servant: Passowd må OwO væwe minst 8 tegn.");
+
+    }
+
+    private void sjekkOmErFeil(String feilMelding){
+        Set<ConstraintViolation<Deltager>> constraintViolations = validator.validate(testDeltager);
+        assertFalse(constraintViolations.isEmpty());
+        assertThat(constraintViolations).hasSize(1);
+
+        String violationMessage = constraintViolations.iterator().next().getMessage();
+        assertEquals(feilMelding,violationMessage);
     }
 }
