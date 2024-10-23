@@ -25,28 +25,12 @@ public class Deltagere {
 
     public boolean leggTilDeltager(Deltager deltager) {
         boolean exists = Deltagerliste.stream().anyMatch(m -> m.getMobil().equals(deltager.getMobil()));
-        if (!exists && ValiderBruker(deltager)) {
+        if (!exists) {
             Deltagerliste.add(deltager);
             return true;
         }
         System.out.println("noe gikk galt");
         return false;
-    }
-    private boolean ValiderBruker(Deltager deltager) {
-        if (deltager.getFornavn() == null ||!deltager.getFornavn().matches("^[A-Za-zæøåÆØÅ\\-]{2,20}$")) {
-            return false;
-        }
-        if (deltager.getEtternavn() == null || !deltager.getEtternavn().matches("^[A-Za-zæøåÆØÅ\\- ]{2,20}$")) {
-            return false;
-        }
-
-        if (deltager.getMobil() == null || !deltager.getMobil().matches("^[1-9]\\d{7}$")) {
-            return false;
-        }
-        if (deltager.getPassord() == null || deltager.getPassord().length() < 8) {
-            return false;
-        }
-        return true;
     }
     public void skrivUtDeltagere(){
         int i = 0;
