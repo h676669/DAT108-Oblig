@@ -20,13 +20,13 @@ public class deltagerController {
                                   @RequestParam("kjonn") Kjonn kjonn,
                                   Model model, RedirectAttributes redirectAttributes) {
 
-        if (fornavn == null || fornavn.isEmpty() || fornavn.length() < 2 || fornavn.length() > 20) {
+        if (fornavn == null || fornavn.length() < 2 || fornavn.length() > 20) {
             model.addAttribute("error", "Servant: Fownyavn må OwO væwe mewwom 2 og 20 bokstavew.");
             return "paameldingView";
         }
 
 
-        if (etternavn == null || etternavn.isEmpty() || etternavn.length() < 2 || etternavn.length() > 20) {
+        if (etternavn == null || etternavn.length() < 2 || etternavn.length() > 20) {
             model.addAttribute("error", "Servant: E-E-Ettewnyavn må OwO væwe mewwom 2 og 20 bokstavew.");
             return "paameldingView";
         }
