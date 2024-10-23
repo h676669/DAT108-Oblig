@@ -32,7 +32,8 @@ public class deltagerController {
             redirectAttributes.addFlashAttribute("error", "Mobilnummeret er allerede registrert.");
             return "redirect:/paamelding";
         }
-            redirectAttributes.addFlashAttribute("deltager", deltager);
+
+        redirectAttributes.addFlashAttribute("deltager", deltager);
         redirectAttributes.addFlashAttribute("success", "Servant: B-Bwukew wegistewt suksessfult!!11");
         System.out.println("Fornavn: " + deltager.getFornavn());
         System.out.println("Etternavn: " + deltager.getEtternavn());
@@ -41,7 +42,7 @@ public class deltagerController {
 
     @GetMapping("/deltagerliste")
     public String deltagerliste() {
-        return "deltagerlistView";
+        return "deltagerlisteView";
     }
 
     @GetMapping("/kvittering")
