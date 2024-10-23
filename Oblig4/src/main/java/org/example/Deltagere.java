@@ -31,10 +31,6 @@ public class Deltagere {
         return false;
     }
     private boolean ValiderBruker(Deltager deltager) {
-        boolean exists = Deltagerliste.stream().anyMatch(m -> m.getMobil().equals(deltager.getMobil()));
-        if (exists) {
-            return false;
-        }
         if (deltager.getFornavn() == null ||!deltager.getFornavn().matches("^[A-Za-zæøåÆØÅ\\-]{2,20}$")) {
             return false;
         }
