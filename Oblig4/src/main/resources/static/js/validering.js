@@ -21,6 +21,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const validLength = name.length >= 2 && name.length <= 20;
         return validChars && validLength;
     }
+    const validateMobilnummer = (mobilnummer) => {
+        const onlyNumbers = /^\d+$/.test(mobilnummer);
+        const firstNotZero = mobilnummer.charAt(0) !== '0';
+        const validMobilLength = mobilnummer.length === 8;
+        return onlyNumbers && firstNotZero && validMobilLength;
+    }
+    // Attach the 'submit' event listener to the form
     form.addEventListener("submit", function (event) {
         let fornavn = toUppercase(fornavnInput.value);
         let etternavn = toUppercase(etternavnInput.value);
@@ -37,6 +44,12 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("etternavn må være mellom 2 og 20 bokstaver og inneholde gyldige karakterer(A-Å og bindestrek)")
         }
 
+//        const mobilnummer = mobilnummerInput.value;
+//
+//          if (!validateMobilnummer(mobilnummer)) {
+//            event.preventDefault(); // Prevent form submission
+//            alert("Mobilnummer må kun inneholde tall og være nøyaktig 8 siffer og kan ikke starte med 0.");
+//          }
         const password = passwordInput.value;
         if ((repasswordInput.value !== password) || (password.length < 8)) {
             event.preventDefault();
