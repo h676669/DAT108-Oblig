@@ -14,9 +14,5 @@ Oblig2/.DS_Store
 Oblig2/src/.DS_Store
 *.iml
 /Oblig4/.idea
-/.idea
-Oblig3/src/main/resources/.DS_Store
-Oblig3/src/main/.DS_Store
-Oblig3/src/.DS_Store
-Oblig3/.DS_Store
-.DS_Store
+.idea/.name
+.idea/uiDesigner.xml

@@ -11,4 +11,17 @@ public class Deltagere {
             new Deltager("34534534", "Per", "Viskelær", Kjonn.Mann),
             new Deltager("12321378", "Xx-x", "Xxx", Kjonn.Kvinne)
     );
+
+    public List<Deltager> getDeltagerliste() {
+        return Deltagerliste;
+    };
+    public boolean leggTilDeltager(Deltager deltager) {
+        List<Deltager> Testdeltagerliste = Deltagerliste.stream().filter(m -> m.getMobil().equals(deltager.getMobil())).toList();
+      if (Testdeltagerliste.isEmpty()) {
+          Deltagerliste.add(deltager);
+          return true;
+      }
+      return false;
+    };
+
 }
