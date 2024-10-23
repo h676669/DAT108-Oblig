@@ -25,7 +25,7 @@ public class Deltagere {
 
     public boolean leggTilDeltager(Deltager deltager) {
         boolean exists = Deltagerliste.stream().anyMatch(m -> m.getMobil().equals(deltager.getMobil()));
-        if (!exists) {
+        if (!exists && ValiderBruker(deltager)) {
             Deltagerliste.add(deltager);
             return true;
         }
