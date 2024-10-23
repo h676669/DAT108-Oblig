@@ -21,41 +21,41 @@ public class deltagerController {
 
         if (fornavn == null || fornavn.isEmpty() || fornavn.length() < 2 || fornavn.length() > 20) {
             model.addAttribute("error", "Servant: Fownyavn må OwO væwe mewwom 2 og 20 bokstavew.");
-            return "paamelding";
+            return "paameldingView";
         }
 
 
         if (etternavn == null || etternavn.isEmpty() || etternavn.length() < 2 || etternavn.length() > 20) {
             model.addAttribute("error", "Servant: E-E-Ettewnyavn må OwO væwe mewwom 2 og 20 bokstavew.");
-            return "paamelding";
+            return "paameldingView";
         }
 
 
         if (!mobilnummer.matches("^[1-9]\\d{7}$")) {
             model.addAttribute("error", "Servant: Mobiwnyummew må OwO væwe nøyaktig 8 siffew og kan ikke starte med 0.");
-            return "paamelding";
+            return "paameldingView";
         }
 
 
         if (password == null || password.length() < 8) {
             model.addAttribute("error", "Servant: Passowd må OwO væwe minst 8 tegn.");
-            return "paamelding";
+            return "paameldingView";
         }
         model.addAttribute("success", "Servant: B-Bwukew wegistewt suksessfult!!11");
         model.addAttribute("fornavn", fornavn);
         model.addAttribute("etternavn", etternavn);
         model.addAttribute("mbnummer", mobilnummer);
         model.addAttribute("kjonn", kjonn);
-        return "kvittering";
+        return "redirect:/kvitteringView";
     }
 
     @GetMapping("/paamelding")
     public String paamelding(){
-        return "paamelding";
+        return "paameldingView";
     }
     @GetMapping("/deltagerliste")
     public String deltagerliste(){
-        return "deltagerliste";
+        return "deltagerlistView";
     }
     @GetMapping("/kvittering")
     public String kvittering(@RequestParam("fornavn") String fornavn,
@@ -68,6 +68,6 @@ public class deltagerController {
         model.addAttribute("mbnummer", mobilnummer);
         model.addAttribute("kjonn", kjonn);
 
-        return "kvittering";
+        return "kvitteringView";
     }
 }
