@@ -46,7 +46,7 @@ public class deltagerController {
         model.addAttribute("etternavn", etternavn);
         model.addAttribute("mbnummer", mobilnummer);
         model.addAttribute("kjonn", kjonn);
-        return "redirect:/kvitteringView";
+        return "kvitteringView";
     }
 
     @GetMapping("/paamelding")
