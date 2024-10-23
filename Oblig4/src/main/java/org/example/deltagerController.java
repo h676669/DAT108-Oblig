@@ -40,6 +40,7 @@ public class deltagerController {
             model.addAttribute("error", "Servant: Passowd må OwO væwe minst 8 tegn.");
             return "paameldingView";
         }
+        redirectAttributes.addFlashAttribute("success", "Servant: B-Bwukew wegistewt suksessfult!!11");
         redirectAttributes.addFlashAttribute("kjonn", kjonn);
         redirectAttributes.addFlashAttribute("fornavn", fornavn);
         redirectAttributes.addFlashAttribute("etternavn", etternavn);
