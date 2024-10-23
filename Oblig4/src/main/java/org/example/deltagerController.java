@@ -41,7 +41,8 @@ public class deltagerController {
     }
 
     @GetMapping("/deltagerliste")
-    public String deltagerliste() {
+    public String deltagerliste(Model model) {
+        model.addAttribute("deltagerliste", deltagere.getDeltagerliste());
         return "deltagerlisteView";
     }
 
