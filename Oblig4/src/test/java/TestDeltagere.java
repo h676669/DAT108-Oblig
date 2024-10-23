@@ -27,32 +27,40 @@ public class TestDeltagere {
     }
 
     @Test
-    void testLeggTilDeltagere() {
-        //mobil må være unik
-        Deltager testRiktigDeltager = new Deltager("12345678","12345678","Fornavn","Etternavn", Kjonn.Mann);
-        Deltager testMobilFeil = new Deltager("1234567","12345678","Fornavn","Etternavn", Kjonn.Mann);
-        Deltager testPassordFeil = new Deltager("12345699","1234567","Fornavn","Etternavn", Kjonn.Mann);
-        Deltager testFornavnFeil = new Deltager("12345999","12345678","Fornavn1","Etternavn", Kjonn.Mann);
-        Deltager testEtternavnFeil = new Deltager("12349999","12345678","Fornavn","Etternavn1", Kjonn.Mann);
-
-        assertTrue(deltagere.leggTilDeltager(testRiktigDeltager));
-        assertFalse(deltagere.leggTilDeltager(testMobilFeil));
-        assertFalse(deltagere.leggTilDeltager(testPassordFeil));
-        assertFalse(deltagere.leggTilDeltager(testFornavnFeil));
-        assertFalse(deltagere.leggTilDeltager(testEtternavnFeil));
-    }
-
-    @Test
     void testDeltagerHarGyldigInitVerdier(){
         Set<ConstraintViolation<Deltager>> constraintViolations = validator.validate(testDeltager);
         assertTrue(constraintViolations.isEmpty());
     }
+
     @Test
-    void passordErObligatorisk(){
+    void testPassord(){
         testDeltager.setPassord(null);
         sjekkOmErFeil("Servant: Passowd må OwO væwe minst 8 tegn.");
-
+        testDeltager.setPassord("132");
+        sjekkOmErFeil("Servant: Passowd må OwO væwe minst 8 tegn.");
     }
+
+    @Test
+    void testNavn(){
+        testDeltager.setFornavn("X");
+        sjekkOmErFeil("Servant: Fownyavn må OwO væwe mewwom 2 og 20 bokstavew.");
+        testDeltager.setFornavn("XX1");
+        sjekkOmErFeil("Servant: Fownyavn må OwO væwe mewwom 2 og 20 bokstavew.");
+        testDeltager.setFornavn("TestFornavn"); // reset
+        testDeltager.setEtternavn("X");
+        sjekkOmErFeil("Servant: E-E-Ettewnyavn må OwO væwe mewwom 2 og 20 bokstavew.");
+        testDeltager.setEtternavn("XX1");
+        sjekkOmErFeil("Servant: E-E-Ettewnyavn må OwO væwe mewwom 2 og 20 bokstavew.");
+    }
+
+    @Test
+    void testMobilNummerRiktig(){
+        testDeltager.setMobil(null);
+        sjekkOmErFeil("Servant: Mobiwnyummew må OwO væwe nøyaktig 8 siffew og kan ikke starte med 0.");
+        testDeltager.setMobil("01234567");
+        sjekkOmErFeil("Servant: Mobiwnyummew må OwO væwe nøyaktig 8 siffew og kan ikke starte med 0.");
+    }
+
 
     private void sjekkOmErFeil(String feilMelding){
         Set<ConstraintViolation<Deltager>> constraintViolations = validator.validate(testDeltager);
