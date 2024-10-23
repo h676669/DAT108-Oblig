@@ -21,11 +21,25 @@ public class Deltagere {
     }
 
     public boolean leggTilDeltager(Deltager deltager) {
-        boolean exists = Deltagerliste.stream().anyMatch(m -> m.getMobil().equals(deltager.getMobil()));
-        if (!exists) {
+        if (ValiderBruker(deltager)) {
             Deltagerliste.add(deltager);
             return true;
         }
         return false;
+    }
+    private boolean ValiderBruker(Deltager deltager) {
+        if (deltager.getFornavn() == null || deltager.getFornavn().length() < 2 || deltager.getFornavn().length() > 20) {
+            return false;
+        }
+        if (deltager.getEtternavn() == null || deltager.getEtternavn().length() < 2 || deltager.getEtternavn().length() > 20) {
+            return false;
+        }
+        if (deltager.getMobil() == null || !deltager.getMobil().matches("^[1-9]\\d{7}$")) {
+            return false;
+        }
+        if (deltager.getPassord() == null || deltager.getPassord().length() < 8) {
+            return false;
+        }
+        return true;
     }
 }

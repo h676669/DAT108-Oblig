@@ -21,7 +21,7 @@ public class deltagerController {
     }
 
     @PostMapping("/paamelding")
-    public String registrerBruker(@ModelAttribute("deltager") Deltager deltager, Model model, RedirectAttributes redirectAttributes) {
+    public String registrerBruker(@ModelAttribute("deltager") Deltager deltager, RedirectAttributes redirectAttributes) {
 
         String ValiderValidering = ValiderBruker(deltager);
         if (ValiderValidering != null) {
