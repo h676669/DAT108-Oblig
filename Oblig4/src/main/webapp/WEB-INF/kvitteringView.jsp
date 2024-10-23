@@ -14,12 +14,17 @@
     <script src="/js/validering.js" defer></script>
 </head>
 <body>
-    <h2>Påmelding</h2>
-    <p style="color:red;">Påmeldingsdetaljer er ugyldige</p>
-    <p>${fornavn}</p>
-    <p>${etternavn}</p>
-    <p>${mbnummer}</p>
-    <p>${kjonn}</p>
+<div style="color: red">
+    <p>${error}</p>
+</div>
+<div style="color: green">
+    <p>${success}</p>
+</div>
+    <h2>Påmeldingsbekreftelse</h2>
+    <p>Fornavn: ${fornavn}</p>
+    <p>Etternavn: ${etternavn}</p>
+    <p>Mobilnummer: ${mbnummer}</p>
+    <p>Kjønn: ${kjonn}</p>
     <a href="deltagerliste">deltagerliste</a>
 </body>
 </html>
