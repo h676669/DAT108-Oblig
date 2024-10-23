@@ -1,9 +1,11 @@
 package org.example;
 
 
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -40,6 +42,9 @@ public class deltagerController {
             return "paamelding";
         }
         model.addAttribute("success", "Servant: B-Bwukew wegistewt suksessfult!!11");
+        model.addAttribute("fornavn", fornavn);
+        model.addAttribute("etternavn", etternavn);
+        model.addAttribute("mbnummer", mobilnummer);
         model.addAttribute("kjonn", kjonn);
         return "kvittering";
     }
