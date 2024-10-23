@@ -30,8 +30,7 @@
         <br>
         <label for="password">Passord</label><br><input type="password" id="password" name="password" required>
         <br>
-        <label for="repassword">Repiter passord</label><br><input type="password" id="repassword" name="repassword"
-                                                                  required>
+        <label for="repassword">Repiter passord</label><br><input type="password" id="repassword" name="repassword" required>
         <br>
         <br>
         <label>Kjønn</label>
