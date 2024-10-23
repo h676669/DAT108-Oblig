@@ -50,13 +50,15 @@ public class deltagerController {
     }
 
     @GetMapping("/paamelding")
-    public String paamelding(){
+    public String paamelding() {
         return "paamelding";
     }
+
     @GetMapping("/deltagerliste")
-    public String deltagerliste(){
+    public String deltagerliste() {
         return "deltagerliste";
     }
+
     @GetMapping("/kvittering")
     public String kvittering(@RequestParam("fornavn") String fornavn,
                              @RequestParam("etternavn") String etternavn,

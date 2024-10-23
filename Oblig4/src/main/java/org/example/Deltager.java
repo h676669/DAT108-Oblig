@@ -16,6 +16,7 @@ public class Deltager {
         this.etternavn = etternavn;
         this.kjonn = kjonn;
     }
+
     public Deltager(String mobil, String fornavn, String etternavn, Kjonn kjonn) {
         this.mobil = mobil;
         this.fornavn = fornavn;

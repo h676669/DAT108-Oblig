@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
     const mobilnummerInput = document.getElementById("mbnummer");
-    const fornavnInput =document.getElementById("fornavn");
-    const etternavnInput=document.getElementById("etternavn");
-    const passwordInput=document.getElementById("password");
-    const repasswordInput=document.getElementById("repassword");
+    const fornavnInput = document.getElementById("fornavn");
+    const etternavnInput = document.getElementById("etternavn");
+    const passwordInput = document.getElementById("password");
+    const repasswordInput = document.getElementById("repassword");
 
 
     const toUppercase = (name) => {
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const validLength = name.length >= 2 && name.length <= 20;
         return validChars && validLength;
     }
-        const validateMobilnummer = (mobilnummer) => {
+    const validateMobilnummer = (mobilnummer) => {
         const onlyNumbers = /^\d+$/.test(mobilnummer);
         const firstNotZero = mobilnummer.charAt(0) !== '0';
         const validMobilLength = mobilnummer.length === 8;
@@ -35,11 +35,11 @@ document.addEventListener("DOMContentLoaded", function () {
         fornavnInput.value = fornavn;
         etternavnInput.value = etternavn;
 
-        if(!validateFirstName(fornavn)){
+        if (!validateFirstName(fornavn)) {
             event.preventDefault()
             alert("Fornavn må være mellom 2 og 20 bokstaver og inneholde gyldige karakterer(A-Å, mellomrom og bindestrek)")
         }
-        if(!validateLastName(etternavn)){
+        if (!validateLastName(etternavn)) {
             event.preventDefault()
             alert("etternavn må være mellom 2 og 20 bokstaver og inneholde gyldige karakterer(A-Å og bindestrek)")
         }
@@ -50,8 +50,8 @@ document.addEventListener("DOMContentLoaded", function () {
 //            event.preventDefault(); // Prevent form submission
 //            alert("Mobilnummer må kun inneholde tall og være nøyaktig 8 siffer og kan ikke starte med 0.");
 //          }
-        const password= passwordInput.value;
-        if((repasswordInput.value !== password) || (password.length <8) ){
+        const password = passwordInput.value;
+        if ((repasswordInput.value !== password) || (password.length < 8)) {
             event.preventDefault();
             alert("Passordene er ikke like eller mindre enn 8 tegn")
         }
