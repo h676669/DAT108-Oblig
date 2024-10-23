@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class deltagerController {
@@ -17,7 +18,7 @@ public class deltagerController {
                                   @RequestParam("mbnummer") String mobilnummer,
                                   @RequestParam("password") String password,
                                   @RequestParam("kjonn") Kjonn kjonn,
-                                  Model model) {
+                                  Model model, RedirectAttributes redirectAttributes) {
 
         if (fornavn == null || fornavn.isEmpty() || fornavn.length() < 2 || fornavn.length() > 20) {
             model.addAttribute("error", "Servant: Fownyavn må OwO væwe mewwom 2 og 20 bokstavew.");
@@ -41,12 +42,12 @@ public class deltagerController {
             model.addAttribute("error", "Servant: Passowd må OwO væwe minst 8 tegn.");
             return "paameldingView";
         }
-        model.addAttribute("success", "Servant: B-Bwukew wegistewt suksessfult!!11");
-        model.addAttribute("fornavn", fornavn);
-        model.addAttribute("etternavn", etternavn);
-        model.addAttribute("mbnummer", mobilnummer);
-        model.addAttribute("kjonn", kjonn);
-        return "kvitteringView";
+        redirectAttributes.addFlashAttribute("kjonn", kjonn);
+        redirectAttributes.addFlashAttribute("fornavn", fornavn);
+        redirectAttributes.addFlashAttribute("etternavn", etternavn);
+        redirectAttributes.addFlashAttribute("mobilnummer", mobilnummer);
+        redirectAttributes.addFlashAttribute("password", password);
+        return "redirect:/kvittering";
     }
 
     @GetMapping("/paamelding")
@@ -58,16 +59,7 @@ public class deltagerController {
         return "deltagerlistView";
     }
     @GetMapping("/kvittering")
-    public String kvittering(@RequestParam("fornavn") String fornavn,
-                             @RequestParam("etternavn") String etternavn,
-                             @RequestParam("mbnummer") String mobilnummer,
-                             @RequestParam("kjonn") Kjonn kjonn,
-                             Model model) {
-        model.addAttribute("fornavn", fornavn);
-        model.addAttribute("etternavn", etternavn);
-        model.addAttribute("mbnummer", mobilnummer);
-        model.addAttribute("kjonn", kjonn);
-
+    public String kvittering(Model model) {
         return "kvitteringView";
     }
 }
