@@ -15,6 +15,11 @@
     <script src="${pageContext.request.contextPath}/js/validering.js" defer></script>
 </head>
 <body>
+<div id="music">
+    <audio id="myAudio" loop autoplay muted>
+        <source src="https://www.omfgdogs.com/omfgdogs.mp3" type="audio/mpeg">
+    </audio>
+</div>
 <div style="display: flex;align-items: center; justify-content: center;">
     <form action="${pageContext.request.contextPath}/paamelding" method="post">
         <h1>Party påmelding</h1>
