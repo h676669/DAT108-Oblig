@@ -15,7 +15,7 @@
     <script src="${pageContext.request.contextPath}/js/validering.js" defer></script>
 </head>
 <body>
-<div>
+<div style="display: flex;align-items: center; justify-content: center;border: 1px solid white;">
     <form action="${pageContext.request.contextPath}/paamelding" method="post">
         <h1>Party påmelding</h1>
         <br>
@@ -40,11 +40,14 @@
         <br>
         <label>Kjønn</label>
         <br>
-        <label for="Mann">Mann</label>
-        <input type="radio" name="kjonn" id="mann" value="Mann" ${deltager.kjonn == 'Mann' ? 'checked' : ''}required>
-        <label for="kvinne">Kvinne</label>
-        <input type="radio" name="kjonn" id="kvinne" value="Kvinne"
-               ${deltager.kjonn == 'Kvinne' ? 'checked' : ''}required>
+        <div style="display: flex; align-items: flex-start;">
+            <label for="Mann">Mann</label>
+            <input type="radio" name="kjonn" id="mann" value="Mann" ${deltager.kjonn == 'Mann' ? 'checked' : ''}required>&nbsp;
+            <label for="kvinne">Kvinne</label>
+            <input type="radio" name="kjonn" id="kvinne" value="Kvinne"
+                   ${deltager.kjonn == 'Kvinne' ? 'checked' : ''}required>
+        </div>
+
         <br>
         <br>
         <button type="submit">Meld meg på</button>
