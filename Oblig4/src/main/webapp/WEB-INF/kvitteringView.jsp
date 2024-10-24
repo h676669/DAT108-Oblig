@@ -14,7 +14,7 @@
     <script src="/js/validering.js" defer></script>
 </head>
 <body>
-<div style=";justify-content: center;align-items: center;">
+<div id="peeeetah" style=";justify-content: center;align-items: center;">
     <h2>Party Påmeldingsbekreftelse</h2>
     <fieldset>
         <div style="color: red">
