@@ -15,10 +15,11 @@
     <script src="${pageContext.request.contextPath}/js/validering.js" defer></script>
 </head>
 <body>
-<div style="display: flex;align-items: center; justify-content: center;border: 1px solid white;">
+<div style="display: flex;align-items: center; justify-content: center;">
     <form action="${pageContext.request.contextPath}/paamelding" method="post">
         <h1>Party påmelding</h1>
         <br>
+        <fieldset>
         <div style="color: red">
             <p>${error}</p>
         </div>
@@ -51,6 +52,7 @@
         <br>
         <br>
         <button type="submit">Meld meg på</button>
+        </fieldset>
     </form>
 </div>
 </body>
