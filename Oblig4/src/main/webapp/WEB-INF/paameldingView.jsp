@@ -16,7 +16,7 @@
 </head>
 <body>
 <div id="music">
-    <audio id="myAudio" loop muted>
+    <audio id="myAudio" loop autoplay muted>
         <source src="https://www.omfgdogs.com/omfgdogs.mp3" type="audio/mpeg">
     </audio>
 </div>
