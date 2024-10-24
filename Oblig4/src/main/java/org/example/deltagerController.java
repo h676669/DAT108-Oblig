@@ -23,7 +23,7 @@ public class deltagerController {
     public String registrerBruker(@ModelAttribute("deltager") Deltager deltager, RedirectAttributes redirectAttributes) {
 
         String ValiderValidering = ValiderBruker(deltager);
-        if (ValiderValidering != null) {
+        if (ValiderBruker(deltager) != null) {
             redirectAttributes.addFlashAttribute("error", ValiderValidering);
             return "redirect:/paamelding";
         }
