@@ -15,7 +15,7 @@
     <title>Deltagerliste</title>
 </head>
 <body>
-<h2>Deltagerliste</h2>
+<div id="peeeetah" style=";justify-content: center;align-items: center;"><h2>Deltagerliste</h2>
 <table>
     <c:forEach var="deltager" items="${deltagerliste}">
         <tr>
@@ -25,5 +25,6 @@
         </tr>
     </c:forEach>
 </table>
+</div>
 </body>
 </html>
