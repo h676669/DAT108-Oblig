@@ -1,5 +1,5 @@
-import org.example.Deltager;
-import org.example.Kjonn;
+import org.Deltager;
+import org.Kjonn;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

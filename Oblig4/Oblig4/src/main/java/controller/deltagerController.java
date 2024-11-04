@@ -1,6 +1,9 @@
-package org.example;
+package controller;
 
 
+import model.Deltager;
+import model.Deltagere;
+import service.PassordService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

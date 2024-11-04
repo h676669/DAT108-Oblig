@@ -31,7 +31,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Denne er nødv. for jakarta.xml.bind.DatatypeConverter i org.example.PassordService -->
+        <!-- Denne er nødv. for jakarta.xml.bind.DatatypeConverter i service.PassordService -->
         <dependency>
             <groupId>jakarta.xml.bind</groupId>
             <artifactId>jakarta.xml.bind-api</artifactId>

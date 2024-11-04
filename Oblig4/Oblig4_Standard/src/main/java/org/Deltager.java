@@ -1,30 +1,28 @@
-package org.example;
+package org;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
-import java.util.List;
-
 public class Deltager {
 
-    @Pattern(regexp = "^[1-9]\\d{7}$", message = "Servant: Mobiwnyummew må OwO væwe nøyaktig 8 siffew og kan ikke starte med 0.")
-    @NotNull(message ="Servant: Mobiwnyummew må OwO væwe nøyaktig 8 siffew og kan ikke starte med 0.")
+    @Pattern(regexp = "^[1-9]\\d{7}$", message = "Mobilnummer må være nøyaktig 8 siffer og kan ikke begynne på 0.")
+    @NotNull(message ="Mobilnummer må være nøyaktig 8 siffer og kan ikke begynne på 0.")
     private String mobil;
 
-    @Size(min = 8, message ="Servant: Passowd må OwO væwe minst 8 tegn.")
-    @NotNull(message = "Servant: Passowd må OwO væwe minst 8 tegn.")
+    @Size(min = 8, message ="Passord må være minst 8 tegn")
+    @NotNull(message = "Passord må være minst 8 tegn")
     private String passord;
 
-    @Pattern(regexp = "^[A-Za-zæøåÆØÅ\\- ]{2,20}$",message = "Servant: Fownyavn må OwO væwe mewwom 2 og 20 bokstavew.")
-    @NotNull(message = "Servant: Fownyavn må OwO væwe mewwom 2 og 20 bokstavew.")
+    @Pattern(regexp = "^[A-Za-zæøåÆØÅ\\- ]{2,20}$",message = "Fornavn må være mellom 2 og 20 bokstaver.")
+    @NotNull(message = "Fornavn må være mellom 2 og 20 bokstaver.")
     private String fornavn;
 
-    @Pattern(regexp ="^[A-Za-zæøåÆØÅ\\- ]{2,20}$", message = "Servant: E-E-Ettewnyavn må OwO væwe mewwom 2 og 20 bokstavew.")
-    @NotNull(message = "Servant: E-E-Ettewnyavn må OwO væwe mewwom 2 og 20 bokstavew.")
+    @Pattern(regexp ="^[A-Za-zæøåÆØÅ\\- ]{2,20}$", message = "Etternavn må være mellom 2 og 20 bokstaver.")
+    @NotNull(message = "Etternavn må være mellom 2 og 20 bokstaver.")
     private String etternavn;
 
-    @NotNull(message = "kan ikkje være tom")
+    @NotNull(message = "kan ikke være tom")
     private Kjonn kjonn;
 
     public Deltager() {
