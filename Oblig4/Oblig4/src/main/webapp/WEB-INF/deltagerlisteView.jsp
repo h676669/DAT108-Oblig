@@ -14,6 +14,11 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/simple.css">
     <title>Deltagerliste</title>
+    <style>
+        .loggetInnBruker {
+            background-color: green;
+        }
+    </style>
 </head>
 <body>
 <div id="peeeetah" style=";justify-content: center;align-items: center;">
@@ -21,11 +26,11 @@
     <br>
     <h2>Deltagerliste</h2>
 <table>
-    <c:forEach var="deltager" items="${deltagerliste}">
-        <tr>
-            <td>${deltager.fornavn} ${deltager.etternavn}</td>
-            <td>${deltager.mobil}</td>
-            <td>${deltager.kjonn}</td>
+    <c:forEach var="deltagere" items="${deltagerliste}">
+        <tr class="<c:if test='${deltagere.mobil == deltager.mobil}'>loggetInnBruker</c:if>">
+            <td>${deltagere.fornavn} ${deltagere.etternavn}</td>
+            <td>${deltagere.mobil}</td>
+            <td>${deltagere.kjonn}</td>
         </tr>
     </c:forEach>
 </table>
