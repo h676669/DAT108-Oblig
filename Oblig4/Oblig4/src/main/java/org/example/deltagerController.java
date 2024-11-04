@@ -1,7 +1,6 @@
 package org.example;
 
 
-import org.eclipse.tags.shaded.org.apache.xpath.operations.Mod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -58,6 +57,11 @@ public class deltagerController {
             redirectAttributes.addFlashAttribute("error", "Ugyldig brukernavn og/eller passord");
             return "redirect:/loginn";
         }
+        deltager = deltagere.deltagerMedMobilnummer(deltager.getMobil());
+        redirectAttributes.addFlashAttribute("deltager", deltager);
+        System.out.println("Bruker " + deltager.getMobil() + " Logget Inn");
+        System.out.println("Fornavn: " + deltager.getFornavn());
+        System.out.println("Etternavn: " + deltager.getEtternavn());
         return "redirect:/deltagerliste";
     }
 

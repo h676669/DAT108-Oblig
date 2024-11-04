@@ -12,5 +12,10 @@ SET search_path TO DAT108Oblig4;
 
 CREATE TABLE deltagerListe
 (
+    MobilNummer VARCHAR(8) PRIMARY KEY,
+    Fornavn VARCHAR(25) NOT NULL,
+    Etternavn VARCHAR(50) NOT NULL,
+    kjonn CHAR CHECK (kjonn='M' OR kjonn='K'),
+    Passsord VARCHAR(99) NOT NULL -- dette burde sikkert endres
 );
 
