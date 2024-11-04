@@ -1,5 +1,3 @@
-package no.hvl.dat108.obl4.service;
-
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
