@@ -12,7 +12,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/simple.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/simple.css">
     <title>Deltagerliste</title>
     <style>
         .loggetInnBruker {

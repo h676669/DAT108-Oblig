@@ -118,11 +118,9 @@ public class deltagerController {
         if (deltager.getMobil() == null || !deltager.getMobil().matches("^[1-9]\\d{7}$")) {
             return "Servant: Mobiwnyummew må OwO væwe nøyaktig 8 siffew og kan ikke starte med 0.";
         }
-        /*
         if (deltager.getPassord() == null || deltager.getPassord().length() < 8) {
             return "Servant: Passowd må OwO væwe minst 8 tegn.";
         }
-        */
         return null;
     }
 }
