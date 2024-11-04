@@ -45,6 +45,14 @@ public class deltagerController {
         deltagere.skrivUtDeltagere();
         return "deltagerlisteView";
     }
+    @GetMapping("/loginn")
+    public String loginn(Model model) {
+        return "loginnView";
+    }
+    @PostMapping("/loginn")
+    public String loggerItnn() {
+        return "redirect:/deltagerliste";
+    }
 
     @GetMapping("/kvittering")
     public String kvittering() {
