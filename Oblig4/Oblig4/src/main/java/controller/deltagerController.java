@@ -49,16 +49,16 @@ public class deltagerController {
         deltagere.skrivUtDeltagere();
         return "deltagerlisteView";
     }
-    @GetMapping("/loginn")
-    public String loginn(Model model) {
-        return "loginnView";
+    @GetMapping("/login")
+    public String login(Model model) {
+        return "loginView";
     }
-    @PostMapping("/loginn")
-    public String logInnBruker(@ModelAttribute("deltager") Deltager deltager, RedirectAttributes redirectAttributes) {
+    @PostMapping("/login")
+    public String loginBruker(@ModelAttribute("deltager") Deltager deltager, RedirectAttributes redirectAttributes) {
         //midlertidlig til vi får satt opp en ordentlig passord ting
         if(/*!passordService.erKorrektPassord(deltager.getPassord(),)|| */!deltagere.finnestMobilnummer(deltager.getMobil())){
             redirectAttributes.addFlashAttribute("error", "Ugyldig brukernavn og/eller passord");
-            return "redirect:/loginn";
+            return "redirect:/login";
         }
         deltager = deltagere.deltagerMedMobilnummer(deltager.getMobil());
         redirectAttributes.addFlashAttribute("deltager", deltager);
@@ -83,9 +83,11 @@ public class deltagerController {
         if (deltager.getMobil() == null || !deltager.getMobil().matches("^[1-9]\\d{7}$")) {
             return "Servant: Mobiwnyummew må OwO væwe nøyaktig 8 siffew og kan ikke starte med 0.";
         }
+        /*
         if (deltager.getPassord() == null || deltager.getPassord().length() < 8) {
             return "Servant: Passowd må OwO væwe minst 8 tegn.";
         }
+        */
         return null;
     }
 }

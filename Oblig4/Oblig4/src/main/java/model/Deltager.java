@@ -1,18 +1,24 @@
 package model;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import service.PassordService;
 
+@Entity
+@Table(schema = "DAT108Oblig4")
 public class Deltager {
 
     @Pattern(regexp = "^[1-9]\\d{7}$", message = "Servant: Mobiwnyummew må OwO væwe nøyaktig 8 siffew og kan ikke starte med 0.")
     @NotNull(message ="Servant: Mobiwnyummew må OwO væwe nøyaktig 8 siffew og kan ikke starte med 0.")
+    @Id
     private String mobil;
 
     @Size(min = 8, message ="Servant: Passowd må OwO væwe minst 8 tegn.")
     @NotNull(message = "Servant: Passowd må OwO væwe minst 8 tegn.")
-    private String passord;
+    @Embedded
+    private Passord passord;
 
     @Pattern(regexp = "^[A-Za-zæøåÆØÅ\\- ]{2,20}$",message = "Servant: Fownyavn må OwO væwe mewwom 2 og 20 bokstavew.")
     @NotNull(message = "Servant: Fownyavn må OwO væwe mewwom 2 og 20 bokstavew.")
@@ -25,12 +31,14 @@ public class Deltager {
     @NotNull(message = "kan ikkje være tom")
     private Kjonn kjonn;
 
+    static final PassordService passordService = new PassordService();
+
     public Deltager() {
     }
 
     public Deltager(String mobil, String passord, String fornavn, String etternavn, Kjonn kjonn) {
         this.mobil = mobil;
-        this.passord = passord;
+        setPassord(passord);
         this.fornavn = fornavn;
         this.etternavn = etternavn;
         this.kjonn = kjonn;
@@ -43,12 +51,13 @@ public class Deltager {
         this.kjonn = kjonn;
     }
 
-    public String getPassord() {
+    public Passord getPassord() {
         return passord;
     }
-
-    public void setPassord(String passord) {
-        this.passord = passord;
+    public void setPassord(String passord){
+        String salt = passordService.genererTilfeldigSalt();
+        String hash = passordService.hashMedSalt(passord, salt);
+        this.passord = new Passord(hash, salt);
     }
 
     public String getMobil() {
@@ -83,3 +92,4 @@ public class Deltager {
         this.kjonn = kjonn;
     }
 }
+
