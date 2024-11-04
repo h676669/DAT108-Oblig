@@ -1,5 +1,5 @@
-import model.Deltager;
-import model.Kjonn;
+import Oblig4.model.Deltager;
+import Oblig4.model.Kjonn;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

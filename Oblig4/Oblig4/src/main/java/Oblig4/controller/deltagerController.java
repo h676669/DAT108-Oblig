@@ -1,9 +1,13 @@
-package controller;
+package Oblig4.controller;
 
 
-import model.Deltager;
-import model.Deltagere;
-import service.PassordService;
+import Oblig4.model.Deltager;
+import Oblig4.model.Deltagere;
+import Oblig4.model.Passord;
+import Oblig4.service.PassordService;
+import Oblig4.util.loginUtil;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +28,7 @@ public class deltagerController {
     }
 
     @PostMapping("/paamelding")
-    public String registrerBruker(@ModelAttribute("deltager") Deltager deltager, RedirectAttributes redirectAttributes) {
+    public String registrerBruker(@ModelAttribute("deltager") Deltager deltager, RedirectAttributes redirectAttributes, HttpServletRequest request) {
 
         String ValiderValidering = ValiderBruker(deltager);
         if (ValiderBruker(deltager) != null) {
@@ -38,34 +42,52 @@ public class deltagerController {
 
         redirectAttributes.addFlashAttribute("deltager", deltager);
         redirectAttributes.addFlashAttribute("success", "Servant: B-Bwukew wegistewt suksessfult!!11");
+        loginUtil.loggInnBruker(request, deltager);
         System.out.println("Fornavn: " + deltager.getFornavn());
         System.out.println("Etternavn: " + deltager.getEtternavn());
         return "redirect:/kvittering";
     }
 
     @GetMapping("/deltagerliste")
-    public String deltagerliste(Model model) {
+    public String deltagerliste(Model model, HttpSession session) {
+        if (!loginUtil.erBrukerInnlogget(session)){
+            return "redirect:/login";
+        }
         model.addAttribute("deltagerliste", deltagere.getDeltagerliste());
         deltagere.skrivUtDeltagere();
         return "deltagerlisteView";
     }
+
     @GetMapping("/login")
     public String login(Model model) {
         return "loginView";
     }
+
     @PostMapping("/login")
-    public String loginBruker(@ModelAttribute("deltager") Deltager deltager, RedirectAttributes redirectAttributes) {
-        //midlertidlig til vi får satt opp en ordentlig passord ting
-        if(/*!passordService.erKorrektPassord(deltager.getPassord(),)|| */!deltagere.finnestMobilnummer(deltager.getMobil())){
+    public String loginBruker(@ModelAttribute("deltager") Deltager deltager, RedirectAttributes redirectAttributes, HttpServletRequest request) {
+        Passord deltagerPassord = deltager.getPassord();
+
+        //Veldig Skeptisk til denne
+        if(!passordService.erKorrektPassord(deltagerPassord.toString(),deltagerPassord.getSalt(), deltagerPassord.getHash())|| !deltagere.finnestMobilnummer(deltager.getMobil())){
             redirectAttributes.addFlashAttribute("error", "Ugyldig brukernavn og/eller passord");
+            System.out.println("Mobilnummer: " + deltager.getMobil());
             return "redirect:/login";
         }
+
         deltager = deltagere.deltagerMedMobilnummer(deltager.getMobil());
         redirectAttributes.addFlashAttribute("deltager", deltager);
+        loginUtil.loggInnBruker(request, deltager);
         System.out.println("Bruker " + deltager.getMobil() + " Logget Inn");
         System.out.println("Fornavn: " + deltager.getFornavn());
         System.out.println("Etternavn: " + deltager.getEtternavn());
         return "redirect:/deltagerliste";
+    }
+
+    @PostMapping("/logout")
+    public String logUt(HttpSession session, RedirectAttributes redirectAttributes) {
+        loginUtil.loggUtBruker(session);
+        redirectAttributes.addFlashAttribute("error", "Du er logget ut");
+        return "redirect:/login";
     }
 
     @GetMapping("/kvittering")

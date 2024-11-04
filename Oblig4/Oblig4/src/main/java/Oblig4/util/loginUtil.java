@@ -1,5 +1,6 @@
-package util;
+package Oblig4.util;
 
+import Oblig4.model.Deltager;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
@@ -10,13 +11,13 @@ public class loginUtil {
         }
     }
 
-    public static void loggInnBruker(HttpServletRequest request) {
+    public static void loggInnBruker(HttpServletRequest request, Deltager deltager) {
 
         //NB!
         loggUtBruker(request.getSession());
 
         HttpSession sesjon = request.getSession();
-        //sesjon.setAttribute();
+        sesjon.setAttribute("deltager", deltager);
         sesjon.setMaxInactiveInterval(60); //sekunder
     }
 

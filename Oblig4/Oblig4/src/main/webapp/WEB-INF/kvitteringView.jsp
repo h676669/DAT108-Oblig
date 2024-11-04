@@ -27,7 +27,7 @@
         <p>Etternavn:<br>${deltager.etternavn}</p>
         <p>Mobilnummer:<br>${deltager.mobil}</p>
         <p>Kjønn:<br>${deltager.kjonn}</p>
-        <h3><a href="/deltagerliste">Deltagerliste</a></h3>
+        <h3><a href="${pageContext.request.contextPath}/deltagerliste">Deltagerliste</a></h3>
     </fieldset>
 </div>
 </body>

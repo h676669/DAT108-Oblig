@@ -1,4 +1,4 @@
-package model;
+package Oblig4.model;
 
 import java.util.ArrayList;
 import java.util.Arrays;

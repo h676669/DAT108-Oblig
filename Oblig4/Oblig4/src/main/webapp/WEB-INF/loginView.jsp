@@ -20,7 +20,7 @@
     <div style="color: red">
         <p>${error}</p>
     </div>
-    <form action="${pageContext.request.contextPath}/loginn" method="post">
+    <form action="${pageContext.request.contextPath}/login" method="post">
         <label for="mobil">Mobilnummer:</label>
         <input type="text" id="mobil" name="mobil" value="${deltager.mobil}" required><br>
 

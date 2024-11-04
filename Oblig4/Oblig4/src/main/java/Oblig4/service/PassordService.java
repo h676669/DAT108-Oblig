@@ -1,4 +1,4 @@
-package service;
+package Oblig4.service;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -81,6 +81,7 @@ public class PassordService {
 			String passord, String salt, String hash) {
 		
 		if (passord == null || salt == null || hash == null) { //Burde validert skikkelig!!
+
 			throw new IllegalArgumentException();
 		}
 		
