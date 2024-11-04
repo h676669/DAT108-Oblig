@@ -1,6 +1,7 @@
 package org.example;
 
 
+import org.eclipse.tags.shaded.org.apache.xpath.operations.Mod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class deltagerController {
 
     private final Deltagere deltagere = new Deltagere();
+    private final PassordService passordService = new PassordService();
 
     @GetMapping("/paamelding")
     public String paamelding(Model model) {
@@ -50,7 +52,12 @@ public class deltagerController {
         return "loginnView";
     }
     @PostMapping("/loginn")
-    public String loggerItnn() {
+    public String logInnBruker(@ModelAttribute("deltager") Deltager deltager, RedirectAttributes redirectAttributes) {
+        //midlertidlig til vi får satt opp en ordentlig passord ting
+        if(/*!passordService.erKorrektPassord(deltager.getPassord(),)|| */!deltagere.finnestMobilnummer(deltager.getMobil())){
+            redirectAttributes.addFlashAttribute("error", "Ugyldig brukernavn og/eller passord");
+            return "redirect:/loginn";
+        }
         return "redirect:/deltagerliste";
     }
 

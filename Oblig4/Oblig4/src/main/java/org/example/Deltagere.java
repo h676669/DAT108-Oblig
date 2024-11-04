@@ -24,8 +24,7 @@ public class Deltagere {
     }
 
     public boolean leggTilDeltager(Deltager deltager) {
-        boolean exists = Deltagerliste.stream().anyMatch(m -> m.getMobil().equals(deltager.getMobil()));
-        if (!exists) {
+        if (!finnestMobilnummer(deltager.getMobil())) {
             Deltagerliste.add(deltager);
             return true;
         }
@@ -43,5 +42,16 @@ public class Deltagere {
             System.out.print("Kjonn: "+deltager.getKjonn() + " ");
             i++;
         };
+    }
+    public boolean finnestMobilnummer(String mobilnummer){
+       return Deltagerliste.stream().anyMatch(m -> m.getMobil().equals(mobilnummer));
+    }
+    public Deltager deltagerMedMobilnummer(String mobilnummer){
+        for (Deltager deltager : Deltagerliste) {
+            if (deltager.getMobil().equals(mobilnummer)) {
+                return deltager;
+            }
+        }
+        return null;
     }
 }
