@@ -28,6 +28,13 @@
         <input type="password" id="passord" name="passord" value="${deltager.passord}" required><br>
         <button type="submit">Logg inn</button>
     </form>
+    <fieldset>
+        <p>Ingen Konto?</p>
+        <a href="${pageContext.request.contextPath}/paamelding">
+            <button>Opprett Konto</button>
+        </a>
+
+    </fieldset>
 </div>
 </body>
 </html>

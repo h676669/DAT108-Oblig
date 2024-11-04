@@ -17,7 +17,7 @@
 </head>
 <body>
 <div id="peeeetah" style=";justify-content: center;align-items: center;">
-    <p>Innlogget som <c:out value="${deltager.fornavn}"/> <c:out value="${deltager.etternavn}"/></p>
+    <p>Innlogget som <c:out value="${deltager.mobil}"/> / <c:out value="${deltager.fornavn}"/> <c:out value="${deltager.etternavn}"/></p>
     <br>
     <h2>Deltagerliste</h2>
 <table>
@@ -30,7 +30,7 @@
     </c:forEach>
 </table>
     <form action="logout" method="post">
-         <button type="submit">Meld meg på</button>
+         <button type="submit">Logg Ut</button>
     </form>
 
 </div>

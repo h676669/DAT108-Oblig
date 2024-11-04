@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -35,6 +36,9 @@ public class deltagerController {
             redirectAttributes.addFlashAttribute("error", ValiderValidering);
             return "redirect:/paamelding";
         }
+
+        deltager.setPassord(deltager.getPassord().getHash());
+
         if (!deltagere.leggTilDeltager(deltager)) {
             redirectAttributes.addFlashAttribute("error", "Mobilnummeret er allerede registrert.");
             return "redirect:/paamelding";
@@ -54,7 +58,7 @@ public class deltagerController {
             return "redirect:/login";
         }
         model.addAttribute("deltagerliste", deltagere.getDeltagerliste());
-        deltagere.skrivUtDeltagere();
+        //deltagere.skrivUtDeltagere();
         return "deltagerlisteView";
     }
 
@@ -64,22 +68,26 @@ public class deltagerController {
     }
 
     @PostMapping("/login")
-    public String loginBruker(@ModelAttribute("deltager") Deltager deltager, RedirectAttributes redirectAttributes, HttpServletRequest request) {
-        Passord deltagerPassord = deltager.getPassord();
+    public String loginBruker(@RequestParam("mobil") String mobil, @RequestParam("passord") String passord, RedirectAttributes redirectAttributes, HttpServletRequest request) {
 
-        //Veldig Skeptisk til denne
-        if(!passordService.erKorrektPassord(deltagerPassord.toString(),deltagerPassord.getSalt(), deltagerPassord.getHash())|| !deltagere.finnestMobilnummer(deltager.getMobil())){
-            redirectAttributes.addFlashAttribute("error", "Ugyldig brukernavn og/eller passord");
-            System.out.println("Mobilnummer: " + deltager.getMobil());
+        Deltager lagretDeltager= deltagere.deltagerMedMobilnummer(mobil);
+        if (lagretDeltager == null) {
             return "redirect:/login";
         }
+        Passord lagretDeltagerPassord = lagretDeltager.getPassord();
+        System.out.println("PlainTextpassord " + passord);
+        System.out.println("Passord fra database " + lagretDeltagerPassord);
 
-        deltager = deltagere.deltagerMedMobilnummer(deltager.getMobil());
-        redirectAttributes.addFlashAttribute("deltager", deltager);
-        loginUtil.loggInnBruker(request, deltager);
-        System.out.println("Bruker " + deltager.getMobil() + " Logget Inn");
-        System.out.println("Fornavn: " + deltager.getFornavn());
-        System.out.println("Etternavn: " + deltager.getEtternavn());
+        if(!passordService.erKorrektPassord(passord, lagretDeltagerPassord.getSalt(), lagretDeltagerPassord.getHash())){
+            redirectAttributes.addFlashAttribute("error", "Ugyldig brukernavn og/eller passord");
+            System.out.println("Mobilnummer: " + lagretDeltager.getMobil());
+            return "redirect:/login";
+        }
+        loginUtil.loggInnBruker(request, lagretDeltager);
+        redirectAttributes.addFlashAttribute("deltager", lagretDeltager);
+        System.out.println("Bruker " + lagretDeltager.getMobil() + " Logget Inn");
+        System.out.println("Fornavn: " + lagretDeltager.getFornavn());
+        System.out.println("Etternavn: " + lagretDeltager.getEtternavn());
         return "redirect:/deltagerliste";
     }
 
@@ -87,6 +95,7 @@ public class deltagerController {
     public String logUt(HttpSession session, RedirectAttributes redirectAttributes) {
         loginUtil.loggUtBruker(session);
         redirectAttributes.addFlashAttribute("error", "Du er logget ut");
+        System.out.println(session);
         return "redirect:/login";
     }
 

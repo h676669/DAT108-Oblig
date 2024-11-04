@@ -81,10 +81,12 @@ public class PassordService {
 			String passord, String salt, String hash) {
 		
 		if (passord == null || salt == null || hash == null) { //Burde validert skikkelig!!
-
 			throw new IllegalArgumentException();
 		}
-		
-		return hash.equals(hashMedSalt(passord, salt));
+		String SjekkHash = hashMedSalt(hash, salt);
+		System.out.println("hash laget av skrevet passord " + SjekkHash);
+		System.out.println("hash til passordet " + hash);
+		System.out.println(hash.equals(SjekkHash));
+		return hash.equals(SjekkHash);
 	}
 }
