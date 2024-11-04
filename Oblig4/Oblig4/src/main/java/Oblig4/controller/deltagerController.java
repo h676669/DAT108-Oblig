@@ -53,8 +53,9 @@ public class deltagerController {
     }
 
     @GetMapping("/deltagerliste")
-    public String deltagerliste(Model model, HttpSession session) {
+    public String deltagerliste(Model model, HttpSession session, RedirectAttributes redirectAttributes) {
         if (!loginUtil.erBrukerInnlogget(session)){
+            redirectAttributes.addFlashAttribute("error", "Du er logget ut");
             return "redirect:/login";
         }
         model.addAttribute("deltagerliste", deltagere.getDeltagerliste());
@@ -100,7 +101,10 @@ public class deltagerController {
     }
 
     @GetMapping("/kvittering")
-    public String kvittering() {
+    public String kvittering(HttpSession session) {
+        if (!loginUtil.erBrukerInnlogget(session)){
+            return "redirect:/login";
+        }
         return "kvitteringView";
     }
 
