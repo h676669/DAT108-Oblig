@@ -25,24 +25,26 @@
     </div>
 </div>
     <div id="peeeetah" style=";justify-content: center;align-items: center;">
-        <h2>Logg inn</h2>
-        <div style="color: red">
+        <h2 style="align-content: center">Logg inn</h2>
+        <div style="color:red;align-content: center;align-items: center;">
             <p>${error}</p>
         </div>
         <form action="${pageContext.request.contextPath}/login" method="post">
-            <label for="mobil">Mobilnummer:</label>
-            <input type="text" id="mobil" name="mobil" value="${deltager.mobil}" required><br>
+            <fieldset style="align-content: center;align-items: center;">
+                <label for="mobil">Mobilnummer:</label>
+                <input type="text" id="mobil" name="mobil" value="${deltager.mobil}" required><br>
 
-            <label for="passord">Passord:</label>
-            <input type="password" id="passord" name="passord" value="${deltager.passord}" required><br>
-            <button type="submit">Logg inn</button>
+                <label for="passord">Passord:</label>
+                <input type="password" id="passord" name="passord" value="${deltager.passord}" required><br>
+                <button type="submit">Logg inn</button>
+            </fieldset>
+
         </form>
-        <fieldset>
+        <fieldset style="align-content: center">
             <p>Ingen Konto?</p>
             <a href="${pageContext.request.contextPath}/paamelding">
                 <button>Opprett Konto</button>
             </a>
-
         </fieldset>
     </div>
 </body>

@@ -54,6 +54,7 @@ public class Deltager {
     public Passord getPassord() {
         return passord;
     }
+
     public void setPassord(String passord){
         String salt = passordService.genererTilfeldigSalt();
         String hash = passordService.hashMedSalt(passord, salt);
