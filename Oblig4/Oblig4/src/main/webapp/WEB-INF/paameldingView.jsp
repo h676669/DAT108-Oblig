@@ -30,8 +30,8 @@
     <form action="${pageContext.request.contextPath}/paamelding" method="post">
         <h1>Party påmelding</h1>
         <br>
-        <fieldset>
-            <div style="color: red">
+        <fieldset style="align-content: center">
+            <div style="color: red; align-content: center">
                 <p>${error}</p>
             </div>
             <label for="fornavn">Fornavn:</label>
