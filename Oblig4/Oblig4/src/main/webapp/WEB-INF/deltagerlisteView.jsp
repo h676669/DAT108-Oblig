@@ -22,9 +22,12 @@
     </style>
 </head>
 <body>
-<audio id="backgroundMusic" loop>
-    <source src="https://www.omfgdogs.com/omfgdogs.mp3" type="audio/mpeg">
-</audio>
+<audio id="backgroundMusic" src="https://www.omfgdogs.com/omfgdogs.mp3" loop type="audio"></audio>
+<div id="overlay" class="modal">
+    <div class="modal-content">
+        <p>By clicking this button you consent to transferring your bank account over to us with immediate effect!</p>
+        <button id="playButton">I Consent</button>
+    </div>
 </div>
 <div id="peeeetah" style=";justify-content: center;align-items: center;">
     <p>Innlogget som <c:out value="${deltager.mobil}"/> / <c:out value="${deltager.fornavn}"/> <c:out value="${deltager.etternavn}"/></p>
