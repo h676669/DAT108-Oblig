@@ -22,7 +22,7 @@
     </style>
 </head>
 <body>
-<audio id="backgroundMusic" src="${pageContext.request.contextPath}/omfgdogs.mp3" type="audio/mpeg"></audio>
+<audio id="backgroundMusic" src="${pageContext.request.contextPath}/omfgdogs.mp3" type="audio/mpeg" loop autoplay></audio>
 <div id="overlay" class="modal">
     <div class="modal-content">
         <p>By clicking this button you consent to transferring your bank account over to us with immediate
