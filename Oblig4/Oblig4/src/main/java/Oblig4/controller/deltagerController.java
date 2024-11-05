@@ -29,10 +29,10 @@ public class deltagerController {
     }
 
     @PostMapping("/paamelding")
-    public String registrerBruker(@ModelAttribute("deltager") Deltager deltager, RedirectAttributes redirectAttributes, HttpServletRequest request) {
+    public String registrerBruker(@ModelAttribute("deltager") Deltager deltager,@RequestParam("passord")String passord, RedirectAttributes redirectAttributes, HttpServletRequest request) {
 
-        String ValiderValidering = ValiderBruker(deltager);
-        if (ValiderBruker(deltager) != null) {
+        String ValiderValidering = ValiderBruker(deltager,passord);
+        if (ValiderValidering != null) {
             redirectAttributes.addFlashAttribute("error", ValiderValidering);
             return "redirect:/paamelding";
         }
@@ -108,7 +108,7 @@ public class deltagerController {
         return "kvitteringView";
     }
 
-    private String ValiderBruker(Deltager deltager) {
+    private String ValiderBruker(Deltager deltager, String passord) {
         if (deltager.getFornavn() == null || deltager.getFornavn().length() < 2 || deltager.getFornavn().length() > 20) {
             return "Servant: Fownyavn må OwO væwe mewwom 2 og 20 bokstavew.";
         }
@@ -118,11 +118,10 @@ public class deltagerController {
         if (deltager.getMobil() == null || !deltager.getMobil().matches("^[1-9]\\d{7}$")) {
             return "Servant: Mobiwnyummew må OwO væwe nøyaktig 8 siffew og kan ikke starte med 0.";
         }
-        /*
-        if (deltager.getPassord() == null || deltager.getPassord().length() < 8) {
+
+        if ((deltager.getPassord() == null || passord == null)|| passord.length() < 8) {
             return "Servant: Passowd må OwO væwe minst 8 tegn.";
         }
-         */
         return null;
     }
 }
