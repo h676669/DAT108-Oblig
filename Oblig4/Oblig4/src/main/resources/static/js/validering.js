@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
             validationFailed = true;
             backgroundMusic.volume = lowerVolume;
             errorSound.play().catch(error => console.error('Error playing audio:', error));
-            errorMessages.push("Passordene er ikke like eller mindre enn 8 tegn.");
+            errorMessages.push("Okay, so here's the deal... passordene dine e enten ikkje like, eller så e dei altfor korte... minst 8 characters folkens, detta klare dåkker for faen!");
         }
         if (!validateGender()) {
             validationFailed = true;

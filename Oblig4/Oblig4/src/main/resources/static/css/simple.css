@@ -91,6 +91,7 @@ body {
     justify-content: center;
     grid-column: 2;
 }
+
 body > * {
     grid-column: 2;
 }
@@ -206,11 +207,29 @@ a:hover {
 }
 
 #peeeetah {
-    background-color: #444040;
+    position: relative;
+    background-color: #212121;
     opacity: 0.95;
     width: auto;
     border-radius: 25px;
     padding: 20px;
+    z-index: 1;
+    overflow: hidden;
+}
+
+#peeeetah::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("/bean.gif");
+    background-size: contain;
+    background-position: center;
+    opacity: 0.02;
+    z-index: -1;
+    border-radius: 25px;
 }
 
 button,
