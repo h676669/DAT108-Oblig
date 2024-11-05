@@ -15,10 +15,11 @@
     <script src="${pageContext.request.contextPath}/js/audio.js" defer></script>
 </head>
 <body>
-<audio id="backgroundMusic" src="${pageContext.request.contextPath}/omfgdogs.mp3" type="audio/mpeg">
+<audio id="backgroundMusic" src="${pageContext.request.contextPath}/omfgdogs.mp3" type="audio/mpeg"></audio>
 <div id="overlay" class="modal">
     <div class="modal-content">
-        <p>By clicking this button you consent to transferring your bank account over to us with immediate effect!</p>
+        <p>By clicking this button you consent to transferring your bank account over to us with immediate
+            effect!</p>
         <button id="playButton">I Consent</button>
     </div>
 </div>

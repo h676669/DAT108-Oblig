@@ -17,8 +17,6 @@
 
 </head>
 <body>
-
-<!-- Print context path for debugging -->
 <audio id="backgroundMusic" src="${pageContext.request.contextPath}/omfgdogs.mp3" type="audio/mpeg"></audio>
     <div id="overlay" class="modal">
         <div class="modal-content">
