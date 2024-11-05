@@ -10,25 +10,25 @@ import Oblig4.service.PassordService;
 @Table(schema = "DAT108Oblig4")
 public class Deltager {
 
-    @Pattern(regexp = "^[1-9]\\d{7}$", message = "Servant: Mobiwnyummew må OwO væwe nøyaktig 8 siffew og kan ikke starte med 0.")
-    @NotNull(message ="Servant: Mobiwnyummew må OwO væwe nøyaktig 8 siffew og kan ikke starte med 0.")
+    @Pattern(regexp = "^[1-9]\\d{7}$", message = "Servant: Mobilnummer må være nøyaktig 8 sifre og kan ikke starte med 0.")
+    @NotNull(message ="Servant: Mobilnummer må være nøyaktig 8 sifre og kan ikke starte med 0.")
     @Id
     private String mobil;
 
-    @Size(min = 8, message ="Servant: Passowd må OwO væwe minst 8 tegn.")
-    @NotNull(message = "Servant: Passowd må OwO væwe minst 8 tegn.")
+    @NotNull(message = "Servant: Passord må være minst 8 tegn.")
     @Embedded
     private Passord passord;
 
-    @Pattern(regexp = "^[A-Za-zæøåÆØÅ\\- ]{2,20}$",message = "Servant: Fownyavn må OwO væwe mewwom 2 og 20 bokstavew.")
-    @NotNull(message = "Servant: Fownyavn må OwO væwe mewwom 2 og 20 bokstavew.")
+    @Pattern(regexp = "^[A-Za-zæøåÆØÅ\\- ]{2,20}$", message = "Servant: Fornavn må være mellom 2 og 20 bokstaver.")
+    @NotNull(message = "Servant: Fornavn må være mellom 2 og 20 bokstaver.")
     private String fornavn;
 
-    @Pattern(regexp ="^[A-Za-zæøåÆØÅ\\- ]{2,20}$", message = "Servant: E-E-Ettewnyavn må OwO væwe mewwom 2 og 20 bokstavew.")
-    @NotNull(message = "Servant: E-E-Ettewnyavn må OwO væwe mewwom 2 og 20 bokstavew.")
+    @Pattern(regexp ="^[A-Za-zæøåÆØÅ\\- ]{2,20}$", message = "Servant: Etternavn må være mellom 2 og 20 bokstaver.")
+    @NotNull(message = "Servant: Etternavn må være mellom 2 og 20 bokstaver.")
     private String etternavn;
 
-    @NotNull(message = "kan ikkje være tom")
+    @NotNull(message = "Kjønn kan ikke være tomt")
+    @Enumerated(EnumType.STRING)
     private Kjonn kjonn;
 
     static final PassordService passordService = new PassordService();

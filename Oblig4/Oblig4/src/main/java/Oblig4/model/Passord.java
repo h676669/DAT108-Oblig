@@ -1,10 +1,16 @@
 package Oblig4.model;
 
 import jakarta.persistence.Embeddable;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Embeddable
 public class Passord{
+
+    @NotNull
     private String hash;
+
+    @NotNull
     private String salt;
 
     public Passord(){}
