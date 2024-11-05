@@ -25,21 +25,23 @@
         <button id="playButton">I Consent</button>
     </div>
 </div>
-<div id="peeeetah" style=";justify-content: center;align-items: center;">
-    <h2>Party Påmeldingsbekreftelse</h2>
-    <fieldset>
-        <div style="color: red">
-            <p>${error}</p>
-        </div>
-        <div style="color: green">
-            <p id="successMessage">${success}</p>
-        </div>
-        <p>Fornavn:<br>${deltager.fornavn}</p>
-        <p>Etternavn:<br>${deltager.etternavn}</p>
-        <p>Mobilnummer:<br>${deltager.mobil}</p>
-        <p>Kjønn:<br>${deltager.kjonn}</p>
-        <h3><a href="${pageContext.request.contextPath}/deltagerliste">Deltagerliste</a></h3>
-    </fieldset>
+<div class="center-container">
+    <div id="peeeetah" style=";justify-content: center;align-items: center;">
+        <h2>Party Påmeldingsbekreftelse</h2>
+        <fieldset>
+            <div style="color: red">
+                <p>${error}</p>
+            </div>
+            <div style="color: green">
+                <p id="successMessage">${success}</p>
+            </div>
+            <p>Fornavn:<br>${deltager.fornavn}</p>
+            <p>Etternavn:<br>${deltager.etternavn}</p>
+            <p>Mobilnummer:<br>${deltager.mobil}</p>
+            <p>Kjønn:<br>${deltager.kjonn}</p>
+            <h3><a href="${pageContext.request.contextPath}/deltagerliste">Deltagerliste</a></h3>
+        </fieldset>
+    </div>
 </div>
 </body>
 </html>

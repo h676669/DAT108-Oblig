@@ -31,24 +31,25 @@
         <button id="playButton">I Consent</button>
     </div>
 </div>
-<div id="peeeetah" style=";justify-content: center;align-items: center;">
-    <p>Innlogget som <c:out value="${deltager.mobil}"/> / <c:out value="${deltager.fornavn}"/> <c:out
-            value="${deltager.etternavn}"/></p>
-    <br>
-    <h2>Deltagerliste</h2>
-    <table>
-        <c:forEach var="deltagere" items="${deltagerliste}">
-            <tr class="<c:if test='${deltagere.mobil == deltager.mobil}'>loggetInnBruker</c:if>">
-                <td>${deltagere.fornavn} ${deltagere.etternavn}</td>
-                <td>${deltagere.mobil}</td>
-                <td>${deltagere.kjonn}</td>
-            </tr>
-        </c:forEach>
-    </table>
-    <form action="logout" method="post">
-        <button type="submit">Logg Ut</button>
-    </form>
-
+<div class="center-container">
+    <div id="peeeetah" style=";justify-content: center;align-items: center;">
+        <p>Innlogget som <c:out value="${deltager.mobil}"/> / <c:out value="${deltager.fornavn}"/> <c:out
+                value="${deltager.etternavn}"/></p>
+        <br>
+        <h2>Deltagerliste</h2>
+        <table>
+            <c:forEach var="deltagere" items="${deltagerliste}">
+                <tr class="<c:if test='${deltagere.mobil == deltager.mobil}'>loggetInnBruker</c:if>">
+                    <td>${deltagere.fornavn} ${deltagere.etternavn}</td>
+                    <td>${deltagere.mobil}</td>
+                    <td>${deltagere.kjonn}</td>
+                </tr>
+            </c:forEach>
+        </table>
+        <form action="logout" method="post">
+            <button type="submit">Logg Ut</button>
+        </form>
+    </div>
 </div>
 </body>
 </html>

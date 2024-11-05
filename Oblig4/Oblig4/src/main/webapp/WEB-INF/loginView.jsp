@@ -25,26 +25,28 @@
         <button id="playButton">I Consent</button>
     </div>
 </div>
-<div id="peeeetah" style=";justify-content: center;align-items: center;">
-    <h2>Logg inn</h2>
-    <div style="color: red">
-        <p>${error}</p>
+<div class=center-container'>
+    <div id="peeeetah" style=";justify-content: center;align-items: center;">
+        <h2>Logg inn</h2>
+        <div style="color: red">
+            <p>${error}</p>
+        </div>
+        <form action="${pageContext.request.contextPath}/login" method="post">
+            <label for="mobil">Mobilnummer:</label>
+            <input type="text" id="mobil" name="mobil" value="${deltager.mobil}" required><br>
+
+            <label for="passord">Passord:</label>
+            <input type="password" id="passord" name="passord" value="${deltager.passord}" required><br>
+            <button type="submit">Logg inn</button>
+        </form>
+        <fieldset>
+            <p>Ingen Konto?</p>
+            <a href="${pageContext.request.contextPath}/paamelding">
+                <button>Opprett Konto</button>
+            </a>
+
+        </fieldset>
     </div>
-    <form action="${pageContext.request.contextPath}/login" method="post">
-        <label for="mobil">Mobilnummer:</label>
-        <input type="text" id="mobil" name="mobil" value="${deltager.mobil}" required><br>
-
-        <label for="passord">Passord:</label>
-        <input type="password" id="passord" name="passord" value="${deltager.passord}" required><br>
-        <button type="submit">Logg inn</button>
-    </form>
-    <fieldset>
-        <p>Ingen Konto?</p>
-        <a href="${pageContext.request.contextPath}/paamelding">
-            <button>Opprett Konto</button>
-        </a>
-
-    </fieldset>
 </div>
 </body>
 </html>
