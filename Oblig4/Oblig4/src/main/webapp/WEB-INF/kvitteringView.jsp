@@ -10,8 +10,8 @@
 <html>
 <head>
     <title>Påmeldingsbekreftelse</title>
-    <link href="/css/simple.css" rel="stylesheet" type="text/css"/>
-    <script src="/js/validering.js" defer></script>
+    <link href="${pageContext.request.contextPath}/css/simple.css" rel="stylesheet" type="text/css"/>
+    <script src="${pageContext.request.contextPath}/js/validering.js" defer></script>
 </head>
 <body>
 <div id="peeeetah" style=";justify-content: center;align-items: center;">
