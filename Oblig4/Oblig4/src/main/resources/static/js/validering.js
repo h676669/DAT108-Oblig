@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const mobilnummerInput = document.getElementById("mobil");
     const fornavnInput = document.getElementById("fornavn");
     const etternavnInput = document.getElementById("etternavn");
-    const passwordInput = document.getElementById("password");
-    const repasswordInput = document.getElementById("repassword");
+    const passwordInput = document.getElementById("passord");
+    const repasswordInput = document.getElementById("repassord");
 
 
     const toUppercase = (name) => {
