@@ -30,7 +30,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     const toUppercase = (name) => {
-        return name.replace(/\b[a-zæøå]/g, char => char.toUpperCase());
+        return name
+            .split(/[\s-]+/)
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+            .join('-');
     };
 
     const validateFirstName = (name) => {
