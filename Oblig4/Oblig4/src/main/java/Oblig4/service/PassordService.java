@@ -82,7 +82,7 @@ public class PassordService {
 		if (passord == null || salt == null || hash == null) { //Burde validert skikkelig!!
 			throw new IllegalArgumentException();
 		}
-		String SjekkHash = hashMedSalt(hash, salt);
+		String SjekkHash = hashMedSalt(passord, salt);
 		System.out.println("Passord skrevet inn "+passord);
 		System.out.println("hash laget av skrevet passord " + SjekkHash);
 		System.out.println("hash til passordet " + hash);

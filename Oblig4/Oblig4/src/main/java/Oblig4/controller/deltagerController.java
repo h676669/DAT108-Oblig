@@ -37,7 +37,7 @@ public class deltagerController {
             return "redirect:/paamelding";
         }
 
-        deltager.setPassord(deltager.getPassord().getHash());
+        deltager.setPassord(passord);
 
         if (!deltagere.leggTilDeltager(deltager)) {
             redirectAttributes.addFlashAttribute("error", "Mobilnummeret er allerede registrert.");
@@ -77,7 +77,8 @@ public class deltagerController {
         }
         Passord lagretDeltagerPassord = lagretDeltager.getPassord();
         System.out.println("PlainTextpassord " + passord);
-        System.out.println("Passord fra database " + lagretDeltagerPassord);
+        System.out.println("HashPassord fra database " + lagretDeltagerPassord.getHash());
+        System.out.println("Hasher passordet med samme salt som lagret "+passordService.hashMedSalt(passord, lagretDeltagerPassord.getSalt()));
 
         if(!passordService.erKorrektPassord(passord, lagretDeltagerPassord.getSalt(), lagretDeltagerPassord.getHash())){
             redirectAttributes.addFlashAttribute("error", "Ugyldig brukernavn og/eller passord");
