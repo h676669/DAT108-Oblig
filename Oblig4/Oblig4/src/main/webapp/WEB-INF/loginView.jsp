@@ -25,7 +25,7 @@
         <button id="playButton">I Consent</button>
     </div>
 </div>
-<div class=center-container'>
+<div class=center-container>
     <div id="peeeetah" style=";justify-content: center;align-items: center;">
         <h2>Logg inn</h2>
         <div style="color: red">
