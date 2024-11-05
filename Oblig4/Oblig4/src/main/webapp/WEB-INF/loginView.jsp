@@ -12,9 +12,15 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/simple.css">
+    <script src="${pageContext.request.contextPath}/js/audio.js" defer></script>
     <title>Deltagerliste</title>
 </head>
 <body>
+<div id="music">
+    <audio id="myAudio" loop>
+        <source src="https://www.omfgdogs.com/omfgdogs.mp3" type="audio/mpeg">
+    </audio>
+</div>
 <div id="peeeetah" style=";justify-content: center;align-items: center;">
     <h2>Logg inn</h2>
     <div style="color: red">
