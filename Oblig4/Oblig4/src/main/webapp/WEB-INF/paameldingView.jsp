@@ -6,7 +6,6 @@
 <%-- Denne må være med for å kunne bruke <c:forEach>-taggen --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +13,25 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/simple.css">
     <script src="${pageContext.request.contextPath}/js/validering.js" defer></script>
     <script src="${pageContext.request.contextPath}/js/audio.js" defer></script>
+    <style>
+        #safariMessage {
+            color: red;
+            display: none;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector("form");
+            const safariMessage = document.getElementById("safariMessage");
 
+            // Check if the browser is Safari
+            const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+            if (isSafari) {
+                form.style.display = 'none';
+                safariMessage.style.display = 'block';
+            }
+        });
+    </script>
 </head>
 <body>
 <audio id="backgroundMusic" loop>
@@ -25,40 +42,41 @@
         <h1>Party påmelding</h1>
         <br>
         <fieldset>
-        <div style="color: red">
-            <p>${error}</p>
-        </div>
-        <label for="fornavn">Fornavn:</label>
-        <input type="text" id="fornavn" name="fornavn" value="${deltager.fornavn}" required><br>
+            <div style="color: red">
+                <p>${error}</p>
+            </div>
+            <label for="fornavn">Fornavn:</label>
+            <input type="text" id="fornavn" name="fornavn" value="${deltager.fornavn}" required><br>
 
-        <label for="etternavn">Etternavn:</label>
-        <input type="text" id="etternavn" name="etternavn" value="${deltager.etternavn}" required><br>
+            <label for="etternavn">Etternavn:</label>
+            <input type="text" id="etternavn" name="etternavn" value="${deltager.etternavn}" required><br>
 
-        <label for="mobil">Mobilnummer:</label>
-        <input type="text" id="mobil" name="mobil" value="${deltager.mobil}" required><br>
+            <label for="mobil">Mobilnummer:</label>
+            <input type="text" id="mobil" name="mobil" value="${deltager.mobil}" required><br>
 
-        <label for="passord">Passord:</label>
-        <input type="password" id="passord" name="passord" value="${deltager.passord}" required><br>
+            <label for="passord">Passord:</label>
+            <input type="password" id="passord" name="passord" value="${deltager.passord}" required><br>
 
-        <label for="repassord">Repiter passord</label>
-        <input type="password" id="repassord" name="repassord" required>
-        <br>
-        <br>
-        <label>Kjønn</label>
-        <br>
-        <div style="display: flex; align-items: flex-start;">
-            <label for="Mann">Mann</label>
-            <input type="radio" name="kjonn" id="mann" value="Mann" ${deltager.kjonn == 'Mann' ? 'checked' : ''}required>&nbsp;
-            <label for="kvinne">Kvinne</label>
-            <input type="radio" name="kjonn" id="kvinne" value="Kvinne"
-                   ${deltager.kjonn == 'Kvinne' ? 'checked' : ''}required>
-        </div>
+            <label for="repassord">Repiter passord</label>
+            <input type="password" id="repassord" name="repassord" required>
+            <br>
+            <br>
+            <label>Kjønn</label>
+            <br>
+            <div style="display: flex; align-items: flex-start;">
+                <label for="Mann">Mann</label>
+                <input type="radio" name="kjonn" id="mann" value="Mann" ${deltager.kjonn == 'Mann' ? 'checked' : ''}required>&nbsp;
+                <label for="kvinne">Kvinne</label>
+                <input type="radio" name="kjonn" id="kvinne" value="Kvinne"
+                       ${deltager.kjonn == 'Kvinne' ? 'checked' : ''}required>
+            </div>
 
-        <br>
-        <br>
-        <button type="submit">Meld meg på</button>
+            <br>
+            <br>
+            <button type="submit">Meld meg på</button>
         </fieldset>
     </form>
+    <p id="safariMessage">This form is not supported on Safari.</p>
 </div>
 </body>
 </html>
