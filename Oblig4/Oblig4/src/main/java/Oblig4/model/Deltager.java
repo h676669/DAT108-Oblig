@@ -11,7 +11,7 @@ import Oblig4.service.PassordService;
 public class Deltager {
 
     @Pattern(regexp = "^[1-9]\\d{7}$", message = "Servant: Mobilnummer må være nøyaktig 8 sifre og kan ikke starte med 0.")
-    @NotNull(message ="Servant: Mobilnummer må være nøyaktig 8 sifre og kan ikke starte med 0.")
+    @NotNull(message = "Servant: Mobilnummer må være nøyaktig 8 sifre og kan ikke starte med 0.")
     @Id
     private String mobil;
 
@@ -23,7 +23,7 @@ public class Deltager {
     @NotNull(message = "Servant: Fornavn må være mellom 2 og 20 bokstaver.")
     private String fornavn;
 
-    @Pattern(regexp ="^[A-Za-zæøåÆØÅ\\- ]{2,20}$", message = "Servant: Etternavn må være mellom 2 og 20 bokstaver.")
+    @Pattern(regexp = "^[A-Za-zæøåÆØÅ\\- ]{2,20}$", message = "Servant: Etternavn må være mellom 2 og 20 bokstaver.")
     @NotNull(message = "Servant: Etternavn må være mellom 2 og 20 bokstaver.")
     private String etternavn;
 
@@ -54,7 +54,8 @@ public class Deltager {
     public Passord getPassord() {
         return passord;
     }
-    public void setPassord(String passord){
+
+    public void setPassord(String passord) {
         String salt = passordService.genererTilfeldigSalt();
         String hash = passordService.hashMedSalt(passord, salt);
         this.passord = new Passord(hash, salt);

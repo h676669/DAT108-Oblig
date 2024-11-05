@@ -1,19 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
     const audio = document.getElementById("backgroundMusic");
+    const successSound = document.getElementById("successSound");
+    const successMessage = document.getElementById("successMessage");
     const playButton = document.getElementById("playButton");
     const overlay = document.getElementById("overlay");
 
-    // Function to save audio state before the page unloads
+    const originalVolume = audio.volume;
+    const lowerVolume = 0.15;
+
     function saveAudioState() {
         sessionStorage.setItem("audioTime", audio.currentTime);
         sessionStorage.setItem("audioPlaying", !audio.paused);
     }
 
-    // Function to restore audio state when the page loads
     function restoreAudioState() {
         const savedTime = sessionStorage.getItem("audioTime");
         if (savedTime !== null) {
-            audio.currentTime = savedTime;
+            audio.currentTime = parseFloat(savedTime);  // Ensure it's a number
         }
 
         if (sessionStorage.getItem("audioPlaying") === "true") {
@@ -41,4 +44,21 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Playback failed:", error);
         });
     });
+
+    successSound.addEventListener('error', event => {
+        console.error('Error loading success audio file:', event);
+    });
+
+    successSound.addEventListener('pause', () => {
+        audio.volume = originalVolume;
+    });
+
+    successSound.addEventListener('ended', () => {
+        audio.volume = originalVolume;
+    });
+
+    if (successMessage && successMessage.innerText.trim() !== "") {
+        audio.volume = lowerVolume;
+        successSound.play().catch(error => console.error('Error playing success audio:', error));
+    }
 });

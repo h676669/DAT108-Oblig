@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Embeddable
-public class Passord{
+public class Passord {
 
     @NotNull
     private String hash;
@@ -13,7 +13,9 @@ public class Passord{
     @NotNull
     private String salt;
 
-    public Passord(){}
+    public Passord() {
+    }
+
     public Passord(String hash, String salt) {
         this.hash = hash;
         this.salt = salt;

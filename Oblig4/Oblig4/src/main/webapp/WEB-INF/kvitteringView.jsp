@@ -15,7 +15,9 @@
     <script src="${pageContext.request.contextPath}/js/audio.js" defer></script>
 </head>
 <body>
-<audio id="backgroundMusic" src="${pageContext.request.contextPath}/omfgdogs.mp3" type="audio/mpeg" loop autoplay></audio>
+<audio id="backgroundMusic" src="${pageContext.request.contextPath}/audio/omfgdogs.mp3" type="audio/mpeg" loop
+       autoplay></audio>
+<audio id="successSound" src="${pageContext.request.contextPath}/audio/success.mp3" type="audio/mpeg"></audio>
 <div id="overlay" class="modal">
     <div class="modal-content">
         <p>By clicking this button you consent to transferring your bank account over to us with immediate
@@ -30,7 +32,7 @@
             <p>${error}</p>
         </div>
         <div style="color: green">
-            <p>${success}</p>
+            <p id="successMessage">${success}</p>
         </div>
         <p>Fornavn:<br>${deltager.fornavn}</p>
         <p>Etternavn:<br>${deltager.etternavn}</p>
