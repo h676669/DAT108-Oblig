@@ -107,13 +107,6 @@ public class deltagerController {
         return "kvitteringView";
     }
 
-    /**
-     * Validates user input for participant registration.
-     *
-     * @param deltager Participant object
-     * @param passord  Password entered
-     * @return Error message if validation fails, otherwise null.
-     */
     private String validerBruker(Deltager deltager, String passord) {
         if (deltager.getFornavn() == null || deltager.getFornavn().length() < 2 || deltager.getFornavn().length() > 20) {
             return "Servant: Fornavn må være mellom 2 og 20 bokstaver.";
