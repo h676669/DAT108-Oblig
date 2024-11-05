@@ -15,11 +15,9 @@
     <script src="${pageContext.request.contextPath}/js/audio.js" defer></script>
 </head>
 <body>
-<div id="music">
-    <audio id="myAudio" loop>
-        <source src="https://www.omfgdogs.com/omfgdogs.mp3" type="audio/mpeg">
-    </audio>
-</div>
+<audio id="backgroundMusic" loop>
+    <source src="https://www.omfgdogs.com/omfgdogs.mp3" type="audio/mpeg">
+</audio>
 <div id="peeeetah" style=";justify-content: center;align-items: center;">
     <h2>Party Påmeldingsbekreftelse</h2>
     <fieldset>

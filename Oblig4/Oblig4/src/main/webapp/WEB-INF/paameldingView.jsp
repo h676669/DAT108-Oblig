@@ -14,13 +14,12 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/simple.css">
     <script src="${pageContext.request.contextPath}/js/validering.js" defer></script>
     <script src="${pageContext.request.contextPath}/js/audio.js" defer></script>
+
 </head>
 <body>
-<div id="music">
-    <audio id="myAudio" loop>
-        <source src="https://www.omfgdogs.com/omfgdogs.mp3" type="audio/mpeg">
-    </audio>
-</div>
+<audio id="backgroundMusic" loop>
+    <source src="https://www.omfgdogs.com/omfgdogs.mp3" type="audio/mpeg">
+</audio>
 <div id="peeeetah" style="display: flex;align-items: center; justify-content: center;">
     <form action="${pageContext.request.contextPath}/paamelding" method="post">
         <h1>Party påmelding</h1>

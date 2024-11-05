@@ -22,10 +22,9 @@
     </style>
 </head>
 <body>
-<div id="music">
-    <audio id="myAudio" loop>
-        <source src="https://www.omfgdogs.com/omfgdogs.mp3" type="audio/mpeg">
-    </audio>
+<audio id="backgroundMusic" loop>
+    <source src="https://www.omfgdogs.com/omfgdogs.mp3" type="audio/mpeg">
+</audio>
 </div>
 <div id="peeeetah" style=";justify-content: center;align-items: center;">
     <p>Innlogget som <c:out value="${deltager.mobil}"/> / <c:out value="${deltager.fornavn}"/> <c:out value="${deltager.etternavn}"/></p>
