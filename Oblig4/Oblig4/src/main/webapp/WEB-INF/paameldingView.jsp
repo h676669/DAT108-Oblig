@@ -28,7 +28,7 @@
 </div>
 <div id="peeeetah" style="display: flex;align-items: center; justify-content: center;">
     <form action="${pageContext.request.contextPath}/paamelding" method="post">
-        <h1>Party påmelding</h1>
+        <h1 style="align-content: center">Party påmelding</h1>
         <br>
         <fieldset style="align-content: center">
             <div style="color: red; align-content: center">
