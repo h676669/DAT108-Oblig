@@ -17,52 +17,56 @@
 
 </head>
 <body>
-<audio id="backgroundMusic" src="https://www.omfgdogs.com/omfgdogs.mp3" loop type="audio"></audio>
-<div id="overlay" class="modal">
-    <div class="modal-content">
-        <p>By clicking this button you consent to transferring your bank account over to us with immediate effect!</p>
-        <button id="playButton">I Consent</button>
+
+<!-- Print context path for debugging -->
+<audio id="backgroundMusic" src="${pageContext.request.contextPath}/omfgdogs.mp3" type="audio/mpeg"></audio>
+    <div id="overlay" class="modal">
+        <div class="modal-content">
+            <p>By clicking this button you consent to transferring your bank account over to us with immediate
+                effect!</p>
+            <button id="playButton">I Consent</button>
+        </div>
     </div>
-</div>
-<div id="peeeetah" style="display: flex;align-items: center; justify-content: center;">
-    <form action="${pageContext.request.contextPath}/paamelding" method="post">
-        <h1>Party påmelding</h1>
-        <br>
-        <fieldset>
-        <div style="color: red">
-            <p>${error}</p>
-        </div>
-        <label for="fornavn">Fornavn:</label>
-        <input type="text" id="fornavn" name="fornavn" value="${deltager.fornavn}" required><br>
+    <div id="peeeetah" style="display: flex;align-items: center; justify-content: center;">
+        <form action="${pageContext.request.contextPath}/paamelding" method="post">
+            <h1>Party påmelding</h1>
+            <br>
+            <fieldset>
+                <div style="color: red">
+                    <p>${error}</p>
+                </div>
+                <label for="fornavn">Fornavn:</label>
+                <input type="text" id="fornavn" name="fornavn" value="${deltager.fornavn}" required><br>
 
-        <label for="etternavn">Etternavn:</label>
-        <input type="text" id="etternavn" name="etternavn" value="${deltager.etternavn}" required><br>
+                <label for="etternavn">Etternavn:</label>
+                <input type="text" id="etternavn" name="etternavn" value="${deltager.etternavn}" required><br>
 
-        <label for="mobil">Mobilnummer:</label>
-        <input type="text" id="mobil" name="mobil" value="${deltager.mobil}" required><br>
+                <label for="mobil">Mobilnummer:</label>
+                <input type="text" id="mobil" name="mobil" value="${deltager.mobil}" required><br>
 
-        <label for="passord">Passord:</label>
-        <input type="password" id="passord" name="passord" value="${deltager.passord}" required><br>
+                <label for="passord">Passord:</label>
+                <input type="password" id="passord" name="passord" value="${deltager.passord}" required><br>
 
-        <label for="repassord">Repiter passord</label>
-        <input type="password" id="repassord" name="repassord" required>
-        <br>
-        <br>
-        <label>Kjønn</label>
-        <br>
-        <div style="display: flex; align-items: flex-start;">
-            <label for="Mann">Mann</label>
-            <input type="radio" name="kjonn" id="mann" value="Mann" ${deltager.kjonn == 'Mann' ? 'checked' : ''}required>&nbsp;
-            <label for="kvinne">Kvinne</label>
-            <input type="radio" name="kjonn" id="kvinne" value="Kvinne"
-                   ${deltager.kjonn == 'Kvinne' ? 'checked' : ''}required>
-        </div>
+                <label for="repassord">Repiter passord</label>
+                <input type="password" id="repassord" name="repassord" required>
+                <br>
+                <br>
+                <label>Kjønn</label>
+                <br>
+                <div style="display: flex; align-items: flex-start;">
+                    <label for="Mann">Mann</label>
+                    <input type="radio" name="kjonn" id="mann" value="Mann"
+                           ${deltager.kjonn == 'Mann' ? 'checked' : ''}required>&nbsp;
+                    <label for="kvinne">Kvinne</label>
+                    <input type="radio" name="kjonn" id="kvinne" value="Kvinne"
+                           ${deltager.kjonn == 'Kvinne' ? 'checked' : ''}required>
+                </div>
 
-        <br>
-        <br>
-        <button type="submit">Meld meg på</button>
-        </fieldset>
-    </form>
-</div>
+                <br>
+                <br>
+                <button type="submit">Meld meg på</button>
+            </fieldset>
+        </form>
+    </div>
 </body>
 </html>

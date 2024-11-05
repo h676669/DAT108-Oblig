@@ -641,6 +641,9 @@ progress::-moz-progress-bar {
 progress:indeterminate::-moz-progress-bar {
     background-color: var(--accent-bg);
 }
+
+
+/* Modal Style */
 .modal {
     display: flex;
     justify-content: center;
@@ -655,7 +658,7 @@ progress:indeterminate::-moz-progress-bar {
     flex-direction: column;
 }
 .modal-content {
-    background: white;
+    background: darkslategray;
     padding: 20px;
     text-align: center;
     border-radius: 5px;
@@ -664,4 +667,3 @@ progress:indeterminate::-moz-progress-bar {
     padding: 10px 20px;
     font-size: 16px;
 }
-

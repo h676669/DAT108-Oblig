@@ -15,7 +15,7 @@
     <script src="${pageContext.request.contextPath}/js/audio.js" defer></script>
 </head>
 <body>
-<audio id="backgroundMusic" src="https://www.omfgdogs.com/omfgdogs.mp3" loop type="audio"></audio>
+<audio id="backgroundMusic" src="${pageContext.request.contextPath}/omfgdogs.mp3" type="audio/mpeg">
 <div id="overlay" class="modal">
     <div class="modal-content">
         <p>By clicking this button you consent to transferring your bank account over to us with immediate effect!</p>
