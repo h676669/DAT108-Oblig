@@ -77,13 +77,13 @@ public class PassordService {
 	 * @param hash - Det "lagrete" passordet 
 	 * @return om passordet matcher
 	 */
-	public boolean erKorrektPassord(
-			String passord, String salt, String hash) {
+	public boolean erKorrektPassord(String passord, String salt, String hash) {
 		
 		if (passord == null || salt == null || hash == null) { //Burde validert skikkelig!!
 			throw new IllegalArgumentException();
 		}
 		String SjekkHash = hashMedSalt(hash, salt);
+		System.out.println("Passord skrevet inn "+passord);
 		System.out.println("hash laget av skrevet passord " + SjekkHash);
 		System.out.println("hash til passordet " + hash);
 		System.out.println(hash.equals(SjekkHash));
