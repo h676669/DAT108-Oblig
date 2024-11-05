@@ -53,23 +53,29 @@
             <br>
             <label>Kjønn</label>
             <br>
-            <div style="display: flex; align-items: flex-start;">
-                <label for="Mann">Mann</label>
-                <input type="radio" name="kjonn" id="mann" value="Mann"
-                       ${deltager.kjonn == 'Mann' ? 'checked' : ''}required>
-                <label for="kvinne">Kvinne</label>
-                <input type="radio" name="kjonn" id="kvinne" value="Kvinne"
-                       ${deltager.kjonn == 'Kvinne' ? 'checked' : ''}required>
-                <label for="intet">Intetkjønn</label>
-                <input type="radio" name="kjonn" id="intet" value="Intet"
-                       ${deltager.kjonn == 'Intet' ? 'checked' : ''}required>
-                <label for="dog">Hund</label>
-                <input type="radio" name="kjonn" id="dog" value="DOG"
-                       ${deltager.kjonn == 'DOG' ? 'checked' : ''}required>
-                <label for="same">Same</label>
-                <input type="radio" name="kjonn" id="same" value="Same"
-                       ${deltager.kjonn == 'Same' ? 'checked' : ''}required>
+            <div style="display: flex; align-items: center;">
+                <label style="display: flex; align-items: center; margin-right: 10px;">
+                    <input type="radio" name="kjonn" id="mann" value="Mann" ${deltager.kjonn == 'Mann' ? 'checked' : ''} required>
+                    Mann
+                </label>
+                <label style="display: flex; align-items: center; margin-right: 10px;">
+                    <input type="radio" name="kjonn" id="kvinne" value="Kvinne" ${deltager.kjonn == 'Kvinne' ? 'checked' : ''} required>
+                    Kvinne
+                </label>
+                <label style="display: flex; align-items: center; margin-right: 10px;">
+                    <input type="radio" name="kjonn" id="intet" value="Intet" ${deltager.kjonn == 'Intet' ? 'checked' : ''} required>
+                    Intetkjønn
+                </label>
+                <label style="display: flex; align-items: center; margin-right: 10px;">
+                    <input type="radio" name="kjonn" id="dog" value="DOG" ${deltager.kjonn == 'DOG' ? 'checked' : ''} required>
+                    Hund
+                </label>
+                <label style="display: flex; align-items: center; margin-right: 10px;">
+                    <input type="radio" name="kjonn" id="same" value="Same" ${deltager.kjonn == 'Same' ? 'checked' : ''} required>
+                    Same
+                </label>
             </div>
+
             <br>
             <br>
             <button type="submit">Meld meg på</button>
