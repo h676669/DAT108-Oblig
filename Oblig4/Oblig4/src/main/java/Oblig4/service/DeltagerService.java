@@ -33,6 +33,17 @@ public class DeltagerService {
         deltagerRepository.save(deltager);
         return true;
     }
+
+
+    //hovudsakelig til testing og generelt cleanup
+    public boolean fjernDeltager(Deltager deltager) {
+        if (deltagerRepository.existsById(deltager.getMobil())) {
+            System.out.println("fjernet deltager " + deltager.getMobil());
+            deltagerRepository.delete(deltager);
+            return true;
+        }
+        return false;
+    }
 }
 
 
