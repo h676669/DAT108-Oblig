@@ -39,9 +39,6 @@ public class TestDeltagerService {
         when(mockPassordService.genererTilfeldigSalt()).thenReturn("1A2B3C4D5E6F7G8H9I0J1K2L3M4N5O6P");
         when(mockPassordService.hashMedSalt("password123", "1A2B3C4D5E6F7G8H9I0J1K2L3M4N5O6P")).thenReturn("AABBCCDDEEFF00112233445566778899AABBCCDDEEFF00112233445566778899");
 
-        Passord passord1 = new Passord("AABBCCDDEEFF00112233445566778899AABBCCDDEEFF00112233445566778899", "1A2B3C4D5E6F7G8H9I0J1K2L3M4N5O6P");
-        Passord passord2 = new Passord("BBCCDDEEFF00112233445566778899AABBCCDDEEFF00112233445566778899AA", "1A2B3C4D5E6F7G8H9I0J1K2L3M4N5O6P");
-
         deltager1 = new Deltager("12345678", "password123", "test1", "test1", Kjonn.Mann);
         deltager1.setPassord("password123", mockPassordService);
 
