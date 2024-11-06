@@ -41,6 +41,9 @@
             <p>Kjønn:<br>${deltager.kjonn}</p>
             <h3><a href="${pageContext.request.contextPath}/deltagerliste">Deltagerliste</a></h3>
         </fieldset>
+        <form action="logout" method="post">
+            <button type="submit">Logg Ut</button>
+        </form>
     </div>
 </div>
 </body>

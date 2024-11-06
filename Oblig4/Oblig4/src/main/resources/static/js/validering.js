@@ -2,12 +2,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
     const fornavnInput = document.getElementById("fornavn");
     const etternavnInput = document.getElementById("etternavn");
+    const mobilInput = document.getElementById("mobil");
     const passwordInput = document.getElementById("passord");
     const repasswordInput = document.getElementById("repassord");
     const kjonnInput = document.getElementsByName("kjonn");
 
     const backgroundMusic = document.getElementById("backgroundMusic");
     const errorSound = new Audio('/audio/error.mp3');
+    errorSound.load();
 
     const originalVolume = backgroundMusic.volume;
     const lowerVolume = 0.15;
@@ -42,10 +44,15 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     const validateLastName = (name) => {
-        const validChars = /^[A-Za-zæøåÆØÅ]+(?:[-][A-Za-zæøåÆØÅ]+)*$/.test(name);
+        const validChars = /^[A-Za-zæøåÆØÅ]+(?:-[A-Za-zæøåÆØÅ]+)*$/.test(name);
         const validLength = name.length >= 2 && name.length <= 20;
         return validChars && validLength;
     };
+    const validateMobil = (mobil) => {
+        const onlyNumbers = /^\d+$/.test(mobil);
+        const validMobilLength = mobil.length === 8;
+        return onlyNumbers && validMobilLength;
+    }
     const validateGender = () => {
         return Array.from(kjonnInput).some(input => input.checked && (input.value === 'Mann' || input.value === 'Kvinne'));
     };
@@ -73,7 +80,13 @@ document.addEventListener("DOMContentLoaded", function () {
             errorSound.play().catch(error => console.error('Error playing audio:', error));
             errorMessages.push("Etternavn må være mellom 2 og 20 bokstaver og inneholde gyldige karakterer (A-Å og bindestrek).");
         }
-
+        const mobNbr = mobilInput.value;
+        if (!validateMobil(mobilNbr)) {
+             validationFailed = true;
+            backgroundMusic.volume = lowerVolume;
+            errorSound.play().catch(error => console.error('Error playing audio:', error));
+            errorMessages.push("Helvete heller, telefonnummeret ditt må værra nøyaktig 8 siffer, e det så satans vanskelig?!?!?!");
+        }
         const password = passwordInput.value;
         if ((repasswordInput.value !== password) || (password.length < 8)) {
             validationFailed = true;
