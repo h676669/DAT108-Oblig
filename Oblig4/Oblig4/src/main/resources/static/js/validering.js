@@ -80,8 +80,8 @@ document.addEventListener("DOMContentLoaded", function () {
             errorSound.play().catch(error => console.error('Error playing audio:', error));
             errorMessages.push("Etternavn må være mellom 2 og 20 bokstaver og inneholde gyldige karakterer (A-Å og bindestrek).");
         }
-        const mobNbr = mobilInput.value;
-        if (!validateMobil(mobilNbr)) {
+        const cellPhone = mobilInput.value;
+        if (!validateMobil(cellPhone)) {
              validationFailed = true;
             backgroundMusic.volume = lowerVolume;
             errorSound.play().catch(error => console.error('Error playing audio:', error));
