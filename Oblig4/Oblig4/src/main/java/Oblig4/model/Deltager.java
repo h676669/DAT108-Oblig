@@ -38,7 +38,7 @@ public class Deltager {
 
     public Deltager(String mobil, String passord, String fornavn, String etternavn, Kjonn kjonn) {
         this.mobil = mobil;
-        setPassord(passord);
+        setPassord(passord,passordService);
         this.fornavn = fornavn;
         this.etternavn = etternavn;
         this.kjonn = kjonn;
@@ -55,7 +55,7 @@ public class Deltager {
         return passord;
     }
 
-    public void setPassord(String passord) {
+    public void setPassord(String passord,PassordService passordService) {
         String salt = passordService.genererTilfeldigSalt();
         String hash = passordService.hashMedSalt(passord, salt);
         this.passord = new Passord(hash, salt);

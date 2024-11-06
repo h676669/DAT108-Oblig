@@ -39,7 +39,7 @@ public class deltagerController {
             return "redirect:/paamelding";
         }
 
-        deltager.setPassord(passord);
+        deltager.setPassord(passord,passordService);
 
         if (!deltagerService.leggTilDeltager(deltager)) {
             redirectAttributes.addFlashAttribute("error", "Mobilnummeret er allerede registrert.");

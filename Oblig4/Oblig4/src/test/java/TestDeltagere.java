@@ -1,5 +1,6 @@
 import Oblig4.model.Deltager;
 import Oblig4.model.Kjonn;
+import Oblig4.service.PassordService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,10 +17,12 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestDeltagere {
     private Validator validator;
     private Deltager testDeltager;
+    private PassordService passordService;
 
     @BeforeEach
     void setUp() {
         validator = Validation.buildDefaultValidatorFactory().getValidator();
+        passordService = new PassordService();
         testDeltager = new Deltager("87654321","12345678","TestFornavn","TestEtternavn",Kjonn.Kvinne);
     }
 
@@ -31,9 +34,9 @@ public class TestDeltagere {
 
     @Test
     void testPassord(){
-        testDeltager.setPassord(null);
+        testDeltager.setPassord(null,passordService);
         sjekkOmErFeil("Servant: Passowd må OwO væwe minst 8 tegn.");
-        testDeltager.setPassord("132");
+        testDeltager.setPassord("132",passordService);
         sjekkOmErFeil("Servant: Passowd må OwO væwe minst 8 tegn.");
     }
 
