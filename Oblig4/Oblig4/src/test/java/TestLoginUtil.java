@@ -30,6 +30,9 @@ public class TestLoginUtil {
     void testErBrukerInnlogget() {
         loginUtil.loggInnBruker(mockRequest,deltager1);
         assertTrue(loginUtil.erBrukerInnlogget(mockRequest.getSession()));
+        mockRequest.getSession().invalidate();
+        assertFalse(loginUtil.erBrukerInnlogget(mockRequest.getSession()));
+
     }
 
     @Test
