@@ -23,25 +23,27 @@ public class TestDeltagere {
     void setUp() {
         validator = Validation.buildDefaultValidatorFactory().getValidator();
         passordService = new PassordService();
-        testDeltager = new Deltager("87654321","12345678","TestFornavn","TestEtternavn",Kjonn.Kvinne);
+        testDeltager = new Deltager("87654321", "12345678", "TestFornavn", "TestEtternavn", Kjonn.Kvinne);
     }
 
     @Test
-    void testDeltagerHarGyldigInitVerdier(){
+    void testDeltagerHarGyldigInitVerdier() {
         Set<ConstraintViolation<Deltager>> constraintViolations = validator.validate(testDeltager);
         assertTrue(constraintViolations.isEmpty());
     }
 
     @Test
-    void testPassord(){
-        testDeltager.setPassord(null,passordService);
-        sjekkOmErFeil("Servant: Passord må være minst 8 tegn.");
-        testDeltager.setPassord("132",passordService);
-        sjekkOmErFeil("Servant: Passord må være minst 8 tegn.");
+    void testPassord() {
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+            testDeltager.setPassord(null, passordService);
+            sjekkOmErFeil("Servant: Passord må være minst 8 tegn.");
+            testDeltager.setPassord("128", passordService);
+            sjekkOmErFeil("Servant: Passord må være minst 8 tegn.");
+        });
     }
 
     @Test
-    void testNavn(){
+    void testNavn() {
         testDeltager.setFornavn("X");
         sjekkOmErFeil("Servant: Fornavn må være mellom 2 og 20 bokstaver.");
         testDeltager.setFornavn("XX1");
@@ -54,25 +56,26 @@ public class TestDeltagere {
     }
 
     @Test
-    void testMobilnummer(){
+    void testMobilnummer() {
         testDeltager.setMobil(null);
         sjekkOmErFeil("Servant: Mobilnummer må være nøyaktig 8 sifre og kan ikke starte med 0.");
         testDeltager.setMobil("01234567");
         sjekkOmErFeil("Servant: Mobilnummer må være nøyaktig 8 sifre og kan ikke starte med 0.");
     }
+
     @Test
-    void testKjonn(){
+    void testKjonn() {
         testDeltager.setKjonn(null);
         sjekkOmErFeil("Kjønn kan ikke være tomt.");
     }
 
 
-    private void sjekkOmErFeil(String feilMelding){
+    private void sjekkOmErFeil(String feilMelding) {
         Set<ConstraintViolation<Deltager>> constraintViolations = validator.validate(testDeltager);
         assertFalse(constraintViolations.isEmpty());
         assertThat(constraintViolations).hasSize(1);
 
         String violationMessage = constraintViolations.iterator().next().getMessage();
-        assertEquals(feilMelding,violationMessage);
+        assertEquals(feilMelding, violationMessage);
     }
 }
