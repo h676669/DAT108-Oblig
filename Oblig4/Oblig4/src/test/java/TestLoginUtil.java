@@ -11,7 +11,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestLoginUtil {
-    private static final Logger log = LoggerFactory.getLogger(TestLoginUtil.class);
     private MockHttpServletRequest mockRequest;
     private Deltager deltager1;
 
