@@ -35,35 +35,35 @@ public class TestDeltagere {
     @Test
     void testPassord(){
         testDeltager.setPassord(null,passordService);
-        sjekkOmErFeil("Servant: Passowd må OwO væwe minst 8 tegn.");
+        sjekkOmErFeil("Servant: Passord må være minst 8 tegn.");
         testDeltager.setPassord("132",passordService);
-        sjekkOmErFeil("Servant: Passowd må OwO væwe minst 8 tegn.");
+        sjekkOmErFeil("Servant: Passord må være minst 8 tegn.");
     }
 
     @Test
     void testNavn(){
         testDeltager.setFornavn("X");
-        sjekkOmErFeil("Servant: Fownyavn må OwO væwe mewwom 2 og 20 bokstavew.");
+        sjekkOmErFeil("Servant: Fornavn må være mellom 2 og 20 bokstaver.");
         testDeltager.setFornavn("XX1");
-        sjekkOmErFeil("Servant: Fownyavn må OwO væwe mewwom 2 og 20 bokstavew.");
+        sjekkOmErFeil("Servant: Fornavn må være mellom 2 og 20 bokstaver.");
         testDeltager.setFornavn("TestFornavn"); // reset
         testDeltager.setEtternavn("X");
-        sjekkOmErFeil("Servant: E-E-Ettewnyavn må OwO væwe mewwom 2 og 20 bokstavew.");
+        sjekkOmErFeil("Servant: Etternavn må være mellom 2 og 20 bokstaver.");
         testDeltager.setEtternavn("XX1");
-        sjekkOmErFeil("Servant: E-E-Ettewnyavn må OwO væwe mewwom 2 og 20 bokstavew.");
+        sjekkOmErFeil("Servant: Etternavn må være mellom 2 og 20 bokstaver.");
     }
 
     @Test
     void testMobilnummer(){
         testDeltager.setMobil(null);
-        sjekkOmErFeil("Servant: Mobiwnyummew må OwO væwe nøyaktig 8 siffew og kan ikke starte med 0.");
+        sjekkOmErFeil("Servant: Mobilnummer må være nøyaktig 8 sifre og kan ikke starte med 0.");
         testDeltager.setMobil("01234567");
-        sjekkOmErFeil("Servant: Mobiwnyummew må OwO væwe nøyaktig 8 siffew og kan ikke starte med 0.");
+        sjekkOmErFeil("Servant: Mobilnummer må være nøyaktig 8 sifre og kan ikke starte med 0.");
     }
     @Test
     void testKjonn(){
         testDeltager.setKjonn(null);
-        sjekkOmErFeil("kan ikkje være tom");
+        sjekkOmErFeil("Kjønn kan ikke være tomt.");
     }
 
 

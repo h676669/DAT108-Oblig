@@ -27,7 +27,7 @@ public class Deltager {
     @NotNull(message = "Servant: Etternavn må være mellom 2 og 20 bokstaver.")
     private String etternavn;
 
-    @NotNull(message = "Kjønn kan ikke være tomt")
+    @NotNull(message = "Kjønn kan ikke være tomt.")
     @Enumerated(EnumType.STRING)
     private Kjonn kjonn;
 
