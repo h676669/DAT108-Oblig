@@ -33,11 +33,9 @@ public class TestDeltagere {
     }
 
     @Test
-    void testPassord() {
+    void testPassordNotNull() {
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
             testDeltager.setPassord(null, passordService);
-            sjekkOmErFeil("Servant: Passord må være minst 8 tegn.");
-            testDeltager.setPassord("128", passordService);
             sjekkOmErFeil("Servant: Passord må være minst 8 tegn.");
         });
     }
