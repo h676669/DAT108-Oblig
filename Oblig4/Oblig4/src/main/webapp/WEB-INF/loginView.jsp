@@ -44,7 +44,6 @@
             <a href="${pageContext.request.contextPath}/paamelding">
                 <button>Opprett Konto</button>
             </a>
-
         </fieldset>
     </div>
 </div>

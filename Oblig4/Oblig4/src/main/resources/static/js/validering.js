@@ -71,18 +71,18 @@ document.addEventListener("DOMContentLoaded", function () {
             validationFailed = true;
             backgroundMusic.volume = lowerVolume;
             errorSound.play().catch(error => console.error('Error playing audio:', error));
-            errorMessages.push("Fornavn må være mellom 2 og 20 bokstaver og inneholde gyldige karakterer (A-Å, mellomrom og bindestrek).");
+            errorMessages.push("Fornavn må verra mellom 2 og 20 bokstaver og inneholda gyldige karakterer (A-Å, mellomrom og bindestrek).");
         }
 
         if (!validateLastName(etternavn)) {
             validationFailed = true;
             backgroundMusic.volume = lowerVolume;
             errorSound.play().catch(error => console.error('Error playing audio:', error));
-            errorMessages.push("Etternavn må være mellom 2 og 20 bokstaver og inneholde gyldige karakterer (A-Å og bindestrek).");
+            errorMessages.push("Etternavn må verra mellom 2 og 20 bokstaver og inneholda gyldige karakterer (A-Å og bindestrek).");
         }
         const cellPhone = mobilInput.value;
         if (!validateMobil(cellPhone)) {
-             validationFailed = true;
+            validationFailed = true;
             backgroundMusic.volume = lowerVolume;
             errorSound.play().catch(error => console.error('Error playing audio:', error));
             errorMessages.push("Helvete heller, telefonnummeret ditt må værra nøyaktig 8 siffer, e det så satans vanskelig?!?!?!");

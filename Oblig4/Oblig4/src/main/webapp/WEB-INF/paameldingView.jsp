@@ -81,12 +81,17 @@
                         Same
                     </label>
                 </div>
-
                 <br>
                 <br>
                 <button type="submit">Meld meg på</button>
             </fieldset>
         </form>
+        <fieldset>
+            <p>Har du allerede Konto?</p>
+            <a href="${pageContext.request.contextPath}/login">
+                <button>Login</button>
+            </a>
+        </fieldset>
     </div>
 </div>
 </body>
