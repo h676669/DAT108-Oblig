@@ -58,4 +58,12 @@ document.addEventListener("DOMContentLoaded", () => {
         audio.volume = lowerVolume;
         successSound.play().catch(error => console.error('Error playing success audio:', error));
     }
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+    if (isSafari) {
+        const overlay = document.getElementById("overlay");
+        if (overlay) {
+            overlay.remove();
+        }
+    }
 });

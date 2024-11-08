@@ -704,3 +704,10 @@ progress:indeterminate::-moz-progress-bar {
     padding: 10px 20px;
     font-size: 16px;
 }
+@media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
+        #overlay {
+            display: none;
+        }
+    }
+}
