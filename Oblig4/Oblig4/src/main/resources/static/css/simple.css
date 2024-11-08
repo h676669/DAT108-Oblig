@@ -170,12 +170,6 @@ p, h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
 }
 
-/* Fix line height when title wraps */
-h1,
-h2,
-h3 {
-    line-height: 1.1;
-}
 
 /* Reduce header size on mobile */
 @media only screen and (max-width: 720px) {
@@ -214,7 +208,7 @@ a:hover {
     border-radius: 25px;
     padding: 20px;
     z-index: 1;
-    overflow: hidden;
+   overflow: hidden;
 }
 
 #peeeetah::before {
