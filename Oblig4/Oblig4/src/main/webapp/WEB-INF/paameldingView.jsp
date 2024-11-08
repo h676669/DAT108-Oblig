@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Party Påmelding</title>
+    <title>Diddy Party Påmelding</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/simple.css">
     <script src="${pageContext.request.contextPath}/js/validering.js" defer></script>
     <script src="${pageContext.request.contextPath}/js/audio.js" defer></script>
