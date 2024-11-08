@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/simple.css">
     <script src="${pageContext.request.contextPath}/js/validering.js" defer></script>
     <script src="${pageContext.request.contextPath}/js/audio.js" defer></script>
+    <script src="${pageContext.request.contextPath}/js/IsraelBlock.js" defer></script>
     <link rel="icon" type="image/x-icon" href="favicon.gif">
 </head>
 <body>
@@ -27,7 +28,7 @@
     </div>
 </div>
 <div class="center-container">
-    <div id="peeeetah" style="display: flex;align-items: center; justify-content: center;">
+    <div id="peeeetah" style="display: flex;align-items: center; flex-direction: column; justify-content: center;">
         <form action="${pageContext.request.contextPath}/paamelding" method="post">
             <h1 style="align-content: center">Party påmelding</h1>
             <br>
@@ -89,7 +90,7 @@
         <fieldset>
             <p>Har du allerede Konto?</p>
             <a href="${pageContext.request.contextPath}/login">
-                <button>Login</button>
+                <button>Gå Til Logg Inn</button>
             </a>
         </fieldset>
     </div>

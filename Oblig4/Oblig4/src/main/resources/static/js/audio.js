@@ -16,30 +16,27 @@ document.addEventListener("DOMContentLoaded", () => {
     function restoreAudioState() {
         const savedTime = sessionStorage.getItem("audioTime");
         if (savedTime !== null) {
-            audio.currentTime = parseFloat(savedTime);  // Ensure it's a number
+            audio.currentTime = parseFloat(savedTime);
         }
 
         if (sessionStorage.getItem("audioPlaying") === "true") {
             audio.play().then(() => {
                 overlay.style.display = 'none';
             }).catch(() => {
-                // Show the overlay if autoplay fails
                 overlay.style.display = 'flex';
             });
         } else {
-            // Show the overlay if the audio was not previously playing
             overlay.style.display = 'flex';
         }
     }
 
-    // Event listeners to save state and handle button click
     window.addEventListener("beforeunload", saveAudioState);
     window.addEventListener("load", restoreAudioState);
 
     playButton.addEventListener("click", () => {
         audio.play().then(() => {
             sessionStorage.setItem("audioPlaying", "true");
-            overlay.style.display = 'none'; // Hide overlay after starting
+            overlay.style.display = 'none';
         }).catch((error) => {
             console.error("Playback failed:", error);
         });

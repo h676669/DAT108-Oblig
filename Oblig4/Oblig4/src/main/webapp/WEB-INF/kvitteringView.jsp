@@ -13,6 +13,7 @@
     <link href="${pageContext.request.contextPath}/css/simple.css" rel="stylesheet" type="text/css"/>
     <script src="${pageContext.request.contextPath}/js/validering.js" defer></script>
     <script src="${pageContext.request.contextPath}/js/audio.js" defer></script>
+    <script src="${pageContext.request.contextPath}/js/IsraelBlock.js" defer></script>
     <link rel="icon" type="image/x-icon" href="favicon.gif">
 </head>
 <body>
