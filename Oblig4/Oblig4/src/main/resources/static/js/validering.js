@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordInput = document.getElementById("passord");
     const repasswordInput = document.getElementById("repassord");
     const kjonnInput = document.getElementsByName("kjonn");
-
     const backgroundMusic = document.getElementById("backgroundMusic");
     const errorSound = new Audio('/audio/error.mp3');
     errorSound.load();
@@ -32,9 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     const toUppercase = (name) => {
-        return name.split(/[\s-]+/)
+        return name.split(/([\s-]+)/)
             .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-            .join('-');
+            .join('');
     };
 
     const validateFirstName = (name) => {
@@ -58,6 +57,16 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     form.addEventListener("submit", function (event) {
+        if(fornavnInput.value === "Lars Petter"){
+            event.preventDefault();
+            document.body.style.backgroundImage = `url(/images/easteregg.png)`;
+        }else if(fornavnInput.value === "Among Us") {
+            event.preventDefault();
+            document.body.style.backgroundImage = `url(/images/bean.gif)`;
+        }else if(fornavnInput.value === "OMFGDogs") {
+            event.preventDefault();
+            document.body.style.backgroundImage = `url(/images/omfgdogs@2X.gif)`;
+        }
         let fornavn = toUppercase(fornavnInput.value);
         let etternavn = toUppercase(etternavnInput.value);
 
