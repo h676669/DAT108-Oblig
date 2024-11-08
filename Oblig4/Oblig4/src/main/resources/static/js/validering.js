@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     form.addEventListener("submit", function (event) {
-        if(fornavnInput.value === "Lars Petter"){
+        if(fornavnInput.value === "Lars-Petter"){
             event.preventDefault();
             document.body.style.backgroundImage = `url(/images/easteregg.png)`;
         }else if(fornavnInput.value === "Among Us") {
