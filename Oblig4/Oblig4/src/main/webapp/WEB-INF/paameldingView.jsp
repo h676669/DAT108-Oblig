@@ -90,7 +90,7 @@
         <fieldset>
             <p>Har du allerede Konto?</p>
             <a href="${pageContext.request.contextPath}/login">
-                <button>Gå Til Logg Inn</button>
+                <button>Gå Til Innlogging</button>
             </a>
         </fieldset>
     </div>
