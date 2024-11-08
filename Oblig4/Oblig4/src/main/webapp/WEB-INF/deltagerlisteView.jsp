@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/simple.css">
     <script src="${pageContext.request.contextPath}/js/audio.js" defer></script>
     <title>Deltagerliste</title>
+    <link rel="icon" type="image/x-icon" href="favicon.gif">
     <style>
         .loggetInnBruker {
             background-color: green;

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/simple.css">
     <script src="${pageContext.request.contextPath}/js/audio.js" defer></script>
     <title>Deltagerliste</title>
+    <link rel="icon" type="image/x-icon" href="favicon.gif">
 </head>
 <body>
 <audio id="backgroundMusic" src="${pageContext.request.contextPath}/audio/omfgdogs.mp3" type="audio/mpeg" loop
