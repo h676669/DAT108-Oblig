@@ -15,7 +15,7 @@
     <script src="${pageContext.request.contextPath}/js/audio.js" defer></script>
     <script src="${pageContext.request.contextPath}/js/IsraelBlock.js" defer></script>
     <title>Deltagerliste</title>
-    <link rel="icon" type="image/x-icon" href="favicon.gif">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.gif">
 </head>
 <body>
 <audio id="backgroundMusic" src="${pageContext.request.contextPath}/audio/omfgdogs.mp3" type="audio/mpeg" loop

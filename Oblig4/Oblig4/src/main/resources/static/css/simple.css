@@ -75,7 +75,7 @@ html {
 body {
 
     color: var(--text);
-    background-image: url("/omfgdogs@2X.gif");
+    background-image: url("/images/omfgdogs@2X.gif");
     font-size: 1.15rem;
     line-height: 1.5;
     display: grid;
@@ -218,7 +218,7 @@ a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url("/bean.gif");
+    background-image: url("/images/bean.gif");
     background-size: contain;
     background-position: center;
     opacity: 0.02;

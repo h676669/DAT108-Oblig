@@ -16,7 +16,7 @@
     <script src="${pageContext.request.contextPath}/js/audio.js" defer></script>
     <script src="${pageContext.request.contextPath}/js/IsraelBlock.js" defer></script>
     <title>Deltagerliste</title>
-    <link rel="icon" type="image/x-icon" href="favicon.gif">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.gif">
     <style>
         .loggetInnBruker {
             background-color: green;

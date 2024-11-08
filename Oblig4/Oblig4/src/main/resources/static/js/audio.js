@@ -8,6 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const originalVolume = audio.volume;
     const lowerVolume = 0.15;
 
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+    if (isSafari) {
+        const overlay = document.getElementById("overlay");
+        if (overlay) {
+            overlay.remove();
+        }
+    }
     function saveAudioState() {
         sessionStorage.setItem("audioTime", audio.currentTime);
         sessionStorage.setItem("audioPlaying", !audio.paused);
@@ -57,13 +65,5 @@ document.addEventListener("DOMContentLoaded", () => {
     if (successMessage && successMessage.innerText.trim() !== "") {
         audio.volume = lowerVolume;
         successSound.play().catch(error => console.error('Error playing success audio:', error));
-    }
-    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-
-    if (isSafari) {
-        const overlay = document.getElementById("overlay");
-        if (overlay) {
-            overlay.remove();
-        }
     }
 });
