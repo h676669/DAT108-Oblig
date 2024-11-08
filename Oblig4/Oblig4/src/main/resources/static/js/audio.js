@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
     if (isSafari) {
+        document.body.style.backgroundImage = `url(/images/safari.jpg)`;
+        document.body.style.backgroundSize = "cover";
         const overlay = document.getElementById("overlay");
         if (overlay) {
             overlay.remove();
